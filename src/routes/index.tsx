@@ -30,7 +30,7 @@ import {
 import { useMemo, useState } from "react";
 import { SiteLayout } from "@/components/layout/SiteLayout";
 import { ToolCard } from "@/components/common/ToolCard";
-import { CATEGORIES, TOOLS, toolCount, getTool, isImplemented } from "@/lib/tools-registry";
+import { CATEGORIES, TOOLS, toolCount, getTool, isImplemented, type Tool } from "@/lib/tools-registry";
 import { useRecents } from "@/hooks/use-recents";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -64,8 +64,7 @@ function Index() {
     "base64-encode",
     "jwt-decoder",
   ];
-  const featured = featuredSlugs.map(getTool).filter(Boolean) as ReturnType<typeof getTool extends (s: string) => infer R ? () => R : never>[] extends never ? never : NonNullable<ReturnType<typeof getTool>>[];
-  const used = new Set(featuredSlugs);
+  const featured = featuredSlugs.map(getTool).filter((t): t is Tool => Boolean(t));
   const { recents } = useRecents();
   const recentTools = recents.map(getTool).filter((t): t is NonNullable<typeof t> => Boolean(t)).slice(0, 4);
   const [query, setQuery] = useState("");
