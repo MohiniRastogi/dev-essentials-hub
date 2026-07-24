@@ -78,15 +78,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Developer Toolkit — 100+ Free Developer Tools" },
+      { title: "Developer Toolkit – AI Code Generator, Code Reviewer & Developer Utilities" },
       {
         name: "description",
         content:
-          "A blazing-fast collection of free developer utilities. Format, validate, generate, convert, encode and decode — all in one place, all in your browser.",
+          "Developer Toolkit is an AI-powered platform for code generation, code review, debugging, formatting, conversion, and developer productivity tools.",
       },
       { name: "author", content: "Developer Toolkit" },
       { property: "og:site_name", content: "Developer Toolkit" },
       { property: "og:type", content: "website" },
+      { property: "og:title", content: "Developer Toolkit – AI Code Generator, Code Reviewer & Developer Utilities" },
+      { property: "og:description", content: "Developer Toolkit is an AI-powered platform for code generation, code review, debugging, formatting, conversion, and developer productivity tools." },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -94,7 +96,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
