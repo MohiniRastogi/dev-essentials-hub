@@ -57,6 +57,15 @@ import { GradientGenerator } from "@/tools/design/GradientGenerator";
 import { QrGenerator } from "@/tools/design/QrGenerator";
 import { RegexTester } from "@/tools/js/RegexTester";
 import { ColorPickerTool } from "@/tools/design/ColorPickerTool";
+import { QrScanner } from "@/tools/design/QrScanner";
+import { HtmlBeautifier } from "@/tools/html/HtmlBeautifier";
+import { HtmlMinifier } from "@/tools/html/HtmlMinifier";
+import { CssBeautifier } from "@/tools/css/CssBeautifier";
+import { CssMinifier } from "@/tools/css/CssMinifier";
+import { SlugGenerator } from "@/tools/text/SlugGenerator";
+import { HtmlEntityTool } from "@/tools/encoding/HtmlEntityTool";
+import { LoremIpsum } from "@/tools/text/LoremIpsum";
+import { JsonViewer } from "@/tools/json/JsonViewer";
 
 export type CategorySlug =
   | "json"
@@ -103,22 +112,22 @@ export const TOOLS: Tool[] = [
   { slug: "json-validator", name: "JSON Validator", description: "Validate JSON and pinpoint syntax errors.", category: "json", icon: FileJson, component: JsonValidator, popular: true },
   { slug: "json-minifier", name: "JSON Minifier", description: "Minify JSON by stripping whitespace.", category: "json", icon: FileMinus, component: JsonMinifier },
   { slug: "json-to-csv", name: "JSON to CSV", description: "Convert a JSON array into a CSV file.", category: "json", icon: Table, component: JsonToCsv, popular: true },
-  { slug: "json-viewer", name: "JSON Viewer", description: "Explore JSON as a collapsible tree.", category: "json", icon: Eye },
+  { slug: "json-viewer", name: "JSON Viewer", description: "Explore JSON as a collapsible tree.", category: "json", icon: Eye, component: JsonViewer, popular: true },
   { slug: "json-compare", name: "JSON Compare", description: "Diff two JSON documents side by side.", category: "json", icon: GitCompare },
   { slug: "json-escape", name: "JSON Escape", description: "Escape a string for safe JSON embedding.", category: "json", icon: ArrowLeftRight },
   { slug: "json-unescape", name: "JSON Unescape", description: "Unescape a JSON string back to raw text.", category: "json", icon: ArrowLeftRight },
 
   // HTML
-  { slug: "html-beautifier", name: "HTML Beautifier", description: "Format HTML with proper indentation.", category: "html", icon: FileCode },
-  { slug: "html-minifier", name: "HTML Minifier", description: "Minify HTML for production.", category: "html", icon: FileMinus },
-  { slug: "html-encoder", name: "HTML Encoder", description: "Encode HTML entities for safe output.", category: "html", icon: ArrowLeftRight },
-  { slug: "html-decoder", name: "HTML Decoder", description: "Decode HTML entities to plain text.", category: "html", icon: ArrowLeftRight },
+  { slug: "html-beautifier", name: "HTML Beautifier", description: "Format HTML with proper indentation.", category: "html", icon: FileCode, component: HtmlBeautifier, popular: true },
+  { slug: "html-minifier", name: "HTML Minifier", description: "Minify HTML for production.", category: "html", icon: FileMinus, component: HtmlMinifier },
+  { slug: "html-encoder", name: "HTML Encoder", description: "Encode HTML entities for safe output.", category: "html", icon: ArrowLeftRight, component: () => <HtmlEntityTool mode="encode" /> },
+  { slug: "html-decoder", name: "HTML Decoder", description: "Decode HTML entities to plain text.", category: "html", icon: ArrowLeftRight, component: () => <HtmlEntityTool mode="decode" /> },
   { slug: "html-viewer", name: "HTML Viewer", description: "Preview raw HTML in a sandbox.", category: "html", icon: Eye },
   { slug: "html-escape", name: "HTML Escape", description: "Escape HTML strings for embedding.", category: "html", icon: Scissors },
 
   // CSS
-  { slug: "css-beautifier", name: "CSS Beautifier", description: "Format CSS with proper indentation.", category: "css", icon: Paintbrush },
-  { slug: "css-minifier", name: "CSS Minifier", description: "Minify CSS for production.", category: "css", icon: FileMinus },
+  { slug: "css-beautifier", name: "CSS Beautifier", description: "Format CSS with proper indentation.", category: "css", icon: Paintbrush, component: CssBeautifier, popular: true },
+  { slug: "css-minifier", name: "CSS Minifier", description: "Minify CSS for production.", category: "css", icon: FileMinus, component: CssMinifier },
   { slug: "gradient-generator", name: "Gradient Generator", description: "Design linear gradients with a live preview.", category: "css", icon: Blend, component: GradientGenerator, popular: true },
   { slug: "box-shadow-generator", name: "Box Shadow Generator", description: "Craft box-shadow with visual controls.", category: "css", icon: Square },
   { slug: "border-radius-generator", name: "Border Radius Generator", description: "Design border-radius per corner.", category: "css", icon: Box },
@@ -154,8 +163,8 @@ export const TOOLS: Tool[] = [
   { slug: "word-counter", name: "Word Counter", description: "Live word, character and reading stats.", category: "text", icon: FileText, component: WordCounter, popular: true },
   { slug: "character-counter", name: "Character Counter", description: "Count characters, letters and spaces.", category: "text", icon: FileText },
   { slug: "paragraph-counter", name: "Paragraph Counter", description: "Count paragraphs and sentences.", category: "text", icon: FileText },
-  { slug: "lorem-ipsum", name: "Lorem Ipsum Generator", description: "Generate placeholder text.", category: "text", icon: Wand2 },
-  { slug: "slug-generator", name: "Slug Generator", description: "Convert text to URL-friendly slugs.", category: "text", icon: LinkIcon },
+  { slug: "lorem-ipsum", name: "Lorem Ipsum Generator", description: "Generate placeholder text.", category: "text", icon: Wand2, component: LoremIpsum, popular: true },
+  { slug: "slug-generator", name: "Slug Generator", description: "Convert text to URL-friendly slugs.", category: "text", icon: LinkIcon, component: SlugGenerator },
   { slug: "remove-duplicate-lines", name: "Remove Duplicate Lines", description: "Deduplicate lines of text.", category: "text", icon: ListOrdered },
   { slug: "sort-lines", name: "Sort Lines", description: "Sort lines alphabetically.", category: "text", icon: ListOrdered },
   { slug: "reverse-text", name: "Reverse Text", description: "Reverse text character by character.", category: "text", icon: Shuffle },
@@ -166,14 +175,14 @@ export const TOOLS: Tool[] = [
   { slug: "base64-decode", name: "Base64 Decode", description: "Decode Base64 to text.", category: "encoding", icon: Binary, component: () => <Base64Tool mode="decode" /> },
   { slug: "url-encode", name: "URL Encode", description: "Percent-encode URLs and components.", category: "encoding", icon: LinkIcon, component: () => <UrlEncoderTool mode="encode" />, popular: true },
   { slug: "url-decode", name: "URL Decode", description: "Decode percent-encoded URLs.", category: "encoding", icon: LinkIcon, component: () => <UrlEncoderTool mode="decode" /> },
-  { slug: "html-encode-2", name: "HTML Encode", description: "Encode text as HTML entities.", category: "encoding", icon: ArrowLeftRight },
-  { slug: "html-decode-2", name: "HTML Decode", description: "Decode HTML entities to text.", category: "encoding", icon: ArrowLeftRight },
+  { slug: "html-encode-2", name: "HTML Encode", description: "Encode text as HTML entities.", category: "encoding", icon: ArrowLeftRight, component: () => <HtmlEntityTool mode="encode" /> },
+  { slug: "html-decode-2", name: "HTML Decode", description: "Decode HTML entities to text.", category: "encoding", icon: ArrowLeftRight, component: () => <HtmlEntityTool mode="decode" /> },
   { slug: "unicode-encode", name: "Unicode Encode", description: "Encode text to Unicode escapes.", category: "encoding", icon: Binary },
   { slug: "unicode-decode", name: "Unicode Decode", description: "Decode Unicode escapes to text.", category: "encoding", icon: Binary },
 
   // Design
   { slug: "qr-generator", name: "QR Code Generator", description: "Generate QR codes with custom size and color.", category: "design", icon: QrCode, component: QrGenerator, popular: true },
-  { slug: "qr-scanner", name: "QR Scanner", description: "Scan QR codes from your camera.", category: "design", icon: ScanLine },
+  { slug: "qr-scanner", name: "QR Scanner", description: "Scan QR codes from your camera or an image.", category: "design", icon: ScanLine, component: QrScanner, popular: true },
   { slug: "color-picker", name: "Color Picker", description: "Pick colors and convert HEX / RGB / HSL.", category: "design", icon: Pipette, component: ColorPickerTool, popular: true },
   { slug: "hex-rgb-converter", name: "HEX ↔ RGB Converter", description: "Convert between HEX and RGB colors.", category: "design", icon: Palette },
   { slug: "svg-blob-generator", name: "SVG Blob Generator", description: "Generate random SVG blobs.", category: "design", icon: Shuffle },

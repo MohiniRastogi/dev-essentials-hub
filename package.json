@@ -53,6 +53,7 @@
     "framer-motion": "^12.42.2",
     "input-otp": "^1.4.2",
     "js-beautify": "^2.0.3",
+    "jsqr": "^1.4.0",
     "lucide-react": "^0.575.0",
     "papaparse": "^5.5.4",
     "qrcode": "^1.5.4",
