@@ -3,6 +3,7 @@ import { CATEGORIES, TOOLS, isImplemented } from "@/lib/tools-registry";
 import { Github, Mail, MessageSquare } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import logoAsset from "@/assets/developer-toolkit-logo.png.asset.json";
 
 export function Footer() {
   const popular = TOOLS.filter((t) => t.popular && isImplemented(t)).slice(0, 6);
@@ -16,7 +17,7 @@ export function Footer() {
     <footer className="mt-24 border-t border-border/50 bg-background/60">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-5">
         <div className="md:col-span-2">
-          <p className="text-sm font-semibold">Developer Toolkit</p>
+          <img src={logoAsset.url} alt="Developer Toolkit" className="h-10 w-auto" />
           <p className="mt-2 max-w-sm text-sm text-muted-foreground">
             A premium collection of developer utilities. Everything runs in your browser — nothing is uploaded.
           </p>
