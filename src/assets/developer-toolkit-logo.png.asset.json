@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "e499415a-93bc-4b12-be3f-27f51ec629dd",
-  "project_id": "9074eead-ad09-4574-a895-15dff0a9d371",
-  "url": "/__l5e/assets-v1/e499415a-93bc-4b12-be3f-27f51ec629dd/developer-toolkit-logo.png",
-  "r2_key": "a/v1/9074eead-ad09-4574-a895-15dff0a9d371/e499415a-93bc-4b12-be3f-27f51ec629dd/developer-toolkit-logo.png",
-  "original_filename": "developer-toolkit-logo.png",
-  "size": 1433982,
   "content_type": "image/png",
-  "created_at": "2026-07-24T11:17:27Z"
+  "created_at": "2026-07-24T11:17:27Z",
+  "original_filename": "developer-toolkit-logo.png",
+  "project_id": "87ebe92d-b982-4069-a7cc-1100c7fd5af7",
+  "r2_key": "a/v1/87ebe92d-b982-4069-a7cc-1100c7fd5af7/e499415a-93bc-4b12-be3f-27f51ec629dd/developer-toolkit-logo.png",
+  "size": 1433982,
+  "url": "/__l5e/assets-v1/e499415a-93bc-4b12-be3f-27f51ec629dd/developer-toolkit-logo.png",
+  "version": 1
 }
