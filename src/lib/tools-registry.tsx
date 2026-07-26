@@ -66,6 +66,14 @@ import { SlugGenerator } from "@/tools/text/SlugGenerator";
 import { HtmlEntityTool } from "@/tools/encoding/HtmlEntityTool";
 import { LoremIpsum } from "@/tools/text/LoremIpsum";
 import { JsonViewer } from "@/tools/json/JsonViewer";
+import { JsonCompare } from "@/tools/json/JsonCompare";
+import { JsonEscapeTool } from "@/tools/json/JsonEscapeTool";
+import { CharacterCounter } from "@/tools/text/CharacterCounter";
+import { ParagraphCounter } from "@/tools/text/ParagraphCounter";
+import { RemoveDuplicateLines } from "@/tools/text/RemoveDuplicateLines";
+import { SortLines } from "@/tools/text/SortLines";
+import { ReverseText } from "@/tools/text/ReverseText";
+import { RandomText } from "@/tools/text/RandomText";
 
 export type CategorySlug =
   | "json"
@@ -113,9 +121,9 @@ export const TOOLS: Tool[] = [
   { slug: "json-minifier", name: "JSON Minifier", description: "Minify JSON by stripping whitespace.", category: "json", icon: FileMinus, component: JsonMinifier },
   { slug: "json-to-csv", name: "JSON to CSV", description: "Convert a JSON array into a CSV file.", category: "json", icon: Table, component: JsonToCsv, popular: true },
   { slug: "json-viewer", name: "JSON Viewer", description: "Explore JSON as a collapsible tree.", category: "json", icon: Eye, component: JsonViewer, popular: true },
-  { slug: "json-compare", name: "JSON Compare", description: "Diff two JSON documents side by side.", category: "json", icon: GitCompare },
-  { slug: "json-escape", name: "JSON Escape", description: "Escape a string for safe JSON embedding.", category: "json", icon: ArrowLeftRight },
-  { slug: "json-unescape", name: "JSON Unescape", description: "Unescape a JSON string back to raw text.", category: "json", icon: ArrowLeftRight },
+  { slug: "json-compare", name: "JSON Compare", description: "Diff two JSON documents side by side.", category: "json", icon: GitCompare, component: JsonCompare, popular: true },
+  { slug: "json-escape", name: "JSON Escape", description: "Escape a string for safe JSON embedding.", category: "json", icon: ArrowLeftRight, component: () => <JsonEscapeTool mode="escape" /> },
+  { slug: "json-unescape", name: "JSON Unescape", description: "Unescape a JSON string back to raw text.", category: "json", icon: ArrowLeftRight, component: () => <JsonEscapeTool mode="unescape" /> },
 
   // HTML
   { slug: "html-beautifier", name: "HTML Beautifier", description: "Format HTML with proper indentation.", category: "html", icon: FileCode, component: HtmlBeautifier, popular: true },
@@ -161,14 +169,14 @@ export const TOOLS: Tool[] = [
   // Text
   { slug: "case-converter", name: "Case Converter", description: "Convert text between casing styles.", category: "text", icon: Type, component: CaseConverter, popular: true },
   { slug: "word-counter", name: "Word Counter", description: "Live word, character and reading stats.", category: "text", icon: FileText, component: WordCounter, popular: true },
-  { slug: "character-counter", name: "Character Counter", description: "Count characters, letters and spaces.", category: "text", icon: FileText },
-  { slug: "paragraph-counter", name: "Paragraph Counter", description: "Count paragraphs and sentences.", category: "text", icon: FileText },
+  { slug: "character-counter", name: "Character Counter", description: "Count characters, letters and spaces.", category: "text", icon: FileText, component: CharacterCounter },
+  { slug: "paragraph-counter", name: "Paragraph Counter", description: "Count paragraphs and sentences.", category: "text", icon: FileText, component: ParagraphCounter },
   { slug: "lorem-ipsum", name: "Lorem Ipsum Generator", description: "Generate placeholder text.", category: "text", icon: Wand2, component: LoremIpsum, popular: true },
   { slug: "slug-generator", name: "Slug Generator", description: "Convert text to URL-friendly slugs.", category: "text", icon: LinkIcon, component: SlugGenerator },
-  { slug: "remove-duplicate-lines", name: "Remove Duplicate Lines", description: "Deduplicate lines of text.", category: "text", icon: ListOrdered },
-  { slug: "sort-lines", name: "Sort Lines", description: "Sort lines alphabetically.", category: "text", icon: ListOrdered },
-  { slug: "reverse-text", name: "Reverse Text", description: "Reverse text character by character.", category: "text", icon: Shuffle },
-  { slug: "random-text", name: "Random Text Generator", description: "Generate random strings and words.", category: "text", icon: Wand2 },
+  { slug: "remove-duplicate-lines", name: "Remove Duplicate Lines", description: "Deduplicate lines of text.", category: "text", icon: ListOrdered, component: RemoveDuplicateLines },
+  { slug: "sort-lines", name: "Sort Lines", description: "Sort lines alphabetically.", category: "text", icon: ListOrdered, component: SortLines },
+  { slug: "reverse-text", name: "Reverse Text", description: "Reverse text character by character.", category: "text", icon: Shuffle, component: ReverseText },
+  { slug: "random-text", name: "Random Text Generator", description: "Generate random strings and words.", category: "text", icon: Wand2, component: RandomText },
 
   // Encoding
   { slug: "base64-encode", name: "Base64 Encode", description: "Encode text to Base64.", category: "encoding", icon: Binary, component: () => <Base64Tool mode="encode" />, popular: true },
