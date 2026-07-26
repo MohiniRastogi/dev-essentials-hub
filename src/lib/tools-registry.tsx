@@ -74,6 +74,15 @@ import { RemoveDuplicateLines } from "@/tools/text/RemoveDuplicateLines";
 import { SortLines } from "@/tools/text/SortLines";
 import { ReverseText } from "@/tools/text/ReverseText";
 import { RandomText } from "@/tools/text/RandomText";
+import { JsMinifier } from "@/tools/js/JsMinifier";
+import { TimestampConverter } from "@/tools/js/TimestampConverter";
+import { UnixTimeConverter } from "@/tools/js/UnixTimeConverter";
+import { PasswordStrength } from "@/tools/security/PasswordStrength";
+import { HexRgbConverter } from "@/tools/design/HexRgbConverter";
+import { SvgBlobGenerator } from "@/tools/design/SvgBlobGenerator";
+import { SvgOptimizer } from "@/tools/design/SvgOptimizer";
+import { CssGenerator } from "@/tools/design/CssGenerator";
+import { FaviconGenerator } from "@/tools/design/FaviconGenerator";
 
 export type CategorySlug =
   | "json"
@@ -148,11 +157,11 @@ export const TOOLS: Tool[] = [
 
   // JavaScript
   { slug: "js-beautifier", name: "JS Beautifier", description: "Format and indent JavaScript.", category: "javascript", icon: Code2 },
-  { slug: "js-minifier", name: "JS Minifier", description: "Minify JavaScript for production.", category: "javascript", icon: FileMinus },
+  { slug: "js-minifier", name: "JS Minifier", description: "Minify JavaScript for production.", category: "javascript", icon: FileMinus, component: JsMinifier },
   { slug: "regex-tester", name: "Regex Tester", description: "Test regular expressions with live matches.", category: "javascript", icon: Regex, component: RegexTester, popular: true },
   { slug: "console-formatter", name: "Console Formatter", description: "Pretty print console log output.", category: "javascript", icon: Terminal },
-  { slug: "timestamp-converter", name: "Timestamp Converter", description: "Convert between date and Unix timestamps.", category: "javascript", icon: Clock },
-  { slug: "unix-time-converter", name: "Unix Time Converter", description: "Convert Unix time to human dates.", category: "javascript", icon: Clock },
+  { slug: "timestamp-converter", name: "Timestamp Converter", description: "Convert between date and Unix timestamps.", category: "javascript", icon: Clock, component: TimestampConverter },
+  { slug: "unix-time-converter", name: "Unix Time Converter", description: "Convert Unix time to human dates.", category: "javascript", icon: Clock, component: UnixTimeConverter },
 
   // Security
   { slug: "jwt-decoder", name: "JWT Decoder", description: "Decode JWT header and payload.", category: "security", icon: KeyRound, component: JwtDecoder, popular: true },
@@ -162,7 +171,7 @@ export const TOOLS: Tool[] = [
   { slug: "sha512", name: "SHA-512 Hash", description: "Compute SHA-512 of any text.", category: "security", icon: Hash, component: () => <HashTool algorithm="SHA-512" /> },
   { slug: "md5", name: "MD5 Hash", description: "Compute MD5 checksum of any text.", category: "security", icon: Hash, component: () => <HashTool algorithm="MD5" /> },
   { slug: "password-generator", name: "Password Generator", description: "Generate strong random passwords.", category: "security", icon: Lock, component: PasswordGenerator, popular: true },
-  { slug: "password-strength", name: "Password Strength Checker", description: "Estimate password entropy and strength.", category: "security", icon: ShieldCheck },
+  { slug: "password-strength", name: "Password Strength Checker", description: "Estimate password entropy and strength.", category: "security", icon: ShieldCheck, component: PasswordStrength },
   { slug: "bcrypt-generator", name: "Bcrypt Generator", description: "Generate bcrypt hashes.", category: "security", icon: Hash },
   { slug: "hmac-generator", name: "HMAC Generator", description: "Generate HMAC signatures.", category: "security", icon: Hash },
 
@@ -192,11 +201,11 @@ export const TOOLS: Tool[] = [
   { slug: "qr-generator", name: "QR Code Generator", description: "Generate QR codes with custom size and color.", category: "design", icon: QrCode, component: QrGenerator, popular: true },
   { slug: "qr-scanner", name: "QR Scanner", description: "Scan QR codes from your camera or an image.", category: "design", icon: ScanLine, component: QrScanner, popular: true },
   { slug: "color-picker", name: "Color Picker", description: "Pick colors and convert HEX / RGB / HSL.", category: "design", icon: Pipette, component: ColorPickerTool, popular: true },
-  { slug: "hex-rgb-converter", name: "HEX ↔ RGB Converter", description: "Convert between HEX and RGB colors.", category: "design", icon: Palette },
-  { slug: "svg-blob-generator", name: "SVG Blob Generator", description: "Generate random SVG blobs.", category: "design", icon: Shuffle },
-  { slug: "favicon-generator", name: "Favicon Generator", description: "Generate favicons in multiple sizes.", category: "design", icon: ImageIcon },
-  { slug: "css-generator", name: "CSS Generator", description: "Generate CSS from visual controls.", category: "design", icon: Sparkles },
-  { slug: "svg-optimizer", name: "SVG Optimizer", description: "Shrink and clean up SVG files.", category: "design", icon: FileMinus },
+  { slug: "hex-rgb-converter", name: "HEX ↔ RGB Converter", description: "Convert between HEX and RGB colors.", category: "design", icon: Palette, component: HexRgbConverter },
+  { slug: "svg-blob-generator", name: "SVG Blob Generator", description: "Generate random SVG blobs.", category: "design", icon: Shuffle, component: SvgBlobGenerator },
+  { slug: "favicon-generator", name: "Favicon Generator", description: "Generate favicons in multiple sizes.", category: "design", icon: ImageIcon, component: FaviconGenerator },
+  { slug: "css-generator", name: "CSS Generator", description: "Generate CSS from visual controls.", category: "design", icon: Sparkles, component: CssGenerator },
+  { slug: "svg-optimizer", name: "SVG Optimizer", description: "Shrink and clean up SVG files.", category: "design", icon: FileMinus, component: SvgOptimizer },
 ];
 
 export function getTool(slug: string) {
