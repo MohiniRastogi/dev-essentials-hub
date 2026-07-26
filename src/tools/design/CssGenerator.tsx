@@ -54,14 +54,14 @@ export function CssGenerator() {
       case "flexbox":
         return {
           css: `.flex {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  justify-content: space-between;\n  gap: ${gap}px;\n}`,
-          style: { display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap },
+          style: { display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap } as React.CSSProperties,
           demo: "items" as const,
         };
       case "grid":
       default:
         return {
           css: `.grid {\n  display: grid;\n  grid-template-columns: repeat(${columns}, minmax(0, 1fr));\n  gap: ${gap}px;\n}`,
-          style: { display: "grid", gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`, gap },
+          style: { display: "grid", gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`, gap } as React.CSSProperties,
           demo: "items" as const,
         };
     }
