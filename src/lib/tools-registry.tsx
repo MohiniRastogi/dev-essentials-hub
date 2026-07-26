@@ -66,6 +66,14 @@ import { SlugGenerator } from "@/tools/text/SlugGenerator";
 import { HtmlEntityTool } from "@/tools/encoding/HtmlEntityTool";
 import { LoremIpsum } from "@/tools/text/LoremIpsum";
 import { JsonViewer } from "@/tools/json/JsonViewer";
+import { JsonCompare } from "@/tools/json/JsonCompare";
+import { JsonEscapeTool } from "@/tools/json/JsonEscapeTool";
+import { CharacterCounter } from "@/tools/text/CharacterCounter";
+import { ParagraphCounter } from "@/tools/text/ParagraphCounter";
+import { RemoveDuplicateLines } from "@/tools/text/RemoveDuplicateLines";
+import { SortLines } from "@/tools/text/SortLines";
+import { ReverseText } from "@/tools/text/ReverseText";
+import { RandomText } from "@/tools/text/RandomText";
 
 export type CategorySlug =
   | "json"
