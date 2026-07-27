@@ -197,7 +197,7 @@ function Index() {
 
       {/* Explore by Category */}
       <section className="mx-auto max-w-7xl px-4 pb-16 pt-10">
-        <SectionHeader title="Categories" subtitle="Everything organised by what you're building." />
+        <SectionHeader title="Categories" subtitle="Browse 100+ free online developer tools organized by category — everything you need to format, convert, generate and inspect code, right in your browser." />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {CATEGORIES.map((c) => {
             const Icon = c.icon;
@@ -219,7 +219,7 @@ function Index() {
       <section className="mx-auto max-w-7xl px-4 pb-16">
         <SectionHeader
           title="Featured tools"
-          subtitle="Hand-picked utilities that save developers hours every week."
+          subtitle="Hand-picked free online developer tools — JSON formatting, password generation, regex testing, QR code creation and more, used by thousands of developers every week."
           cta={<Link to="/tools" className="text-sm text-primary hover:underline">See all →</Link>}
         />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -229,7 +229,7 @@ function Index() {
 
       {/* Trending Categories (not tools — avoids repeats) */}
       <section className="mx-auto max-w-7xl px-4 pb-16">
-        <SectionHeader title="Trending categories" subtitle="What developers are exploring most this week." />
+        <SectionHeader title="Trending categories" subtitle="See which free developer tools and online utilities other developers are exploring most this week." />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {TRENDING_CATEGORIES.map((slug) => {
             const c = CATEGORIES.find((x) => x.slug === slug);
@@ -293,7 +293,7 @@ function Index() {
 
       {/* Developer Resources */}
       <section className="mx-auto max-w-7xl px-4 pb-16">
-        <SectionHeader title="Developer resources" subtitle="Practical guides that pair with the tools you already use." />
+        <SectionHeader title="Developer resources" subtitle="Practical developer guides that pair with the free online tools you already use — JSON formatting, Base64 encoding, regex patterns, UUID versions and more." />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {RESOURCES.map((r) => {
             const Icon = r.icon;
