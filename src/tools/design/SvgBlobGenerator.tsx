@@ -69,8 +69,16 @@ export function SvgBlobGenerator() {
           title="SVG code"
           actions={
             <>
-              <CopyButton value={svg} />
-              <Button size="sm" variant="outline" onClick={() => downloadText("blob.svg", svg, "image/svg+xml")}>
+              <CopyButton value={svg} disabled={!svg} />
+              <Button
+                size="sm"
+                variant="outline"
+                disabled={!svg}
+                onClick={() => {
+                  downloadText("blob.svg", svg, "image/svg+xml");
+                  toast.success("Downloaded blob.svg");
+                }}
+              >
                 <Download className="h-4 w-4" /> Download
               </Button>
             </>
@@ -78,6 +86,7 @@ export function SvgBlobGenerator() {
         >
           <pre className="font-mono-editor max-h-48 overflow-auto whitespace-pre-wrap break-all text-xs">{svg}</pre>
         </ToolPanel>
+
       </div>
     </div>
   );
