@@ -115,21 +115,22 @@ function Index() {
         <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-20 text-center sm:pt-24">
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
             <span className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/40 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
-              <Sparkles className="h-3.5 w-3.5 text-primary" /> {TOOLS.length}+ tools · 100% client-side · No signup
+              <Sparkles className="h-3.5 w-3.5 text-primary" /> {TOOLS.length}+ Free Tools · 100% Client-Side Processing · No Signup Required
             </span>
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.05 }}
             className="mx-auto mt-6 max-w-3xl bg-gradient-to-b from-foreground to-foreground/60 bg-clip-text text-4xl font-bold leading-tight text-transparent sm:text-6xl"
           >
-            The developer toolkit that feels made for you
+            100+ Free Online Developer Tools — Format, Convert &amp; Generate Instantly
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
             className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg"
           >
-            Format, convert, generate and inspect — a fast, private workspace of everyday utilities, right in your browser.
+            A fast, private workspace of JSON formatters, Base64 encoders, JWT decoders, regex testers, QR generators and more — all running client-side in your browser. No signup, no uploads, no limits.
           </motion.p>
+
 
           <div className="relative mx-auto mt-8 max-w-xl">
             <div className="relative">
