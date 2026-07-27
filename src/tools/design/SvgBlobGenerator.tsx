@@ -1,5 +1,7 @@
 import { useCallback, useMemo, useState } from "react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+
 import { Slider } from "@/components/ui/slider";
 import { ToolPanel } from "@/components/common/ToolShell";
 import { CopyButton, downloadText } from "@/components/common/CopyButton";
