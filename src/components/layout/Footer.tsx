@@ -19,7 +19,7 @@ export function Footer() {
         <div className="md:col-span-2">
           <img src={logoAsset.url} alt="Developer Toolkit" className="h-10 w-auto" />
           <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-            A premium collection of developer utilities. Everything runs in your browser — nothing is uploaded.
+            A premium collection of 100+ free online developer tools. Everything runs client-side in your browser — nothing is ever uploaded.
           </p>
           <form
             onSubmit={(e) => e.preventDefault()}
