@@ -1,8 +1,10 @@
+import { toast } from "sonner";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { ToolPanel } from "@/components/common/ToolShell";
 import { CopyButton, downloadText } from "@/components/common/CopyButton";
 import { Download, Trash2, Wand2 } from "lucide-react";
+
 
 export function CodeIO({
   input,
