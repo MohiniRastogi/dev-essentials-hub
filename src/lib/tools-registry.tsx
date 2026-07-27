@@ -126,7 +126,7 @@ export const CATEGORIES: CategoryMeta[] = [
 
 export const TOOLS: Tool[] = [
   // JSON
-  { slug: "json-formatter", name: "JSON Formatter", description: "Beautify and format JSON with syntax indentation.", category: "json", icon: Braces, component: JsonFormatter, popular: true },
+  { slug: "json-formatter", name: "JSON Formatter", description: "Free online JSON formatter and beautifier — format and indent JSON instantly with syntax highlighting.", category: "json", icon: Braces, component: JsonFormatter, popular: true },
   { slug: "json-validator", name: "JSON Validator", description: "Validate JSON and pinpoint syntax errors.", category: "json", icon: FileJson, component: JsonValidator, popular: true },
   { slug: "json-minifier", name: "JSON Minifier", description: "Minify JSON by stripping whitespace.", category: "json", icon: FileMinus, component: JsonMinifier },
   { slug: "json-to-csv", name: "JSON to CSV", description: "Convert a JSON array into a CSV file.", category: "json", icon: Table, component: JsonToCsv, popular: true },
@@ -159,19 +159,19 @@ export const TOOLS: Tool[] = [
   // JavaScript
   { slug: "js-beautifier", name: "JS Beautifier", description: "Format and indent JavaScript.", category: "javascript", icon: Code2 },
   { slug: "js-minifier", name: "JS Minifier", description: "Minify JavaScript for production.", category: "javascript", icon: FileMinus, component: JsMinifier },
-  { slug: "regex-tester", name: "Regex Tester", description: "Test regular expressions with live matches.", category: "javascript", icon: Regex, component: RegexTester, popular: true },
+  { slug: "regex-tester", name: "Regex Tester", description: "Test regular expressions online with live match highlighting — a free regex tester and debugger.", category: "javascript", icon: Regex, component: RegexTester, popular: true },
   { slug: "console-formatter", name: "Console Formatter", description: "Pretty print console log output.", category: "javascript", icon: Terminal },
   { slug: "timestamp-converter", name: "Timestamp Converter", description: "Convert between date and Unix timestamps.", category: "javascript", icon: Clock, component: TimestampConverter },
   { slug: "unix-time-converter", name: "Unix Time Converter", description: "Convert Unix time to human dates.", category: "javascript", icon: Clock, component: UnixTimeConverter },
 
   // Security
-  { slug: "jwt-decoder", name: "JWT Decoder", description: "Decode JWT header and payload.", category: "security", icon: KeyRound, component: JwtDecoder, popular: true },
+  { slug: "jwt-decoder", name: "JWT Decoder", description: "Decode JWT tokens online free — inspect JWT header and payload instantly, no signup needed.", category: "security", icon: KeyRound, component: JwtDecoder, popular: true },
   { slug: "uuid-generator", name: "UUID Generator", description: "Generate v4 UUIDs in bulk.", category: "security", icon: Fingerprint, component: UuidGenerator, popular: true },
   { slug: "sha256", name: "SHA-256 Hash", description: "Compute SHA-256 of any text.", category: "security", icon: Hash, component: () => <HashTool algorithm="SHA-256" /> },
   { slug: "sha1", name: "SHA-1 Hash", description: "Compute SHA-1 of any text.", category: "security", icon: Hash, component: () => <HashTool algorithm="SHA-1" /> },
   { slug: "sha512", name: "SHA-512 Hash", description: "Compute SHA-512 of any text.", category: "security", icon: Hash, component: () => <HashTool algorithm="SHA-512" /> },
   { slug: "md5", name: "MD5 Hash", description: "Compute MD5 checksum of any text.", category: "security", icon: Hash, component: () => <HashTool algorithm="MD5" /> },
-  { slug: "password-generator", name: "Password Generator", description: "Generate strong random passwords.", category: "security", icon: Lock, component: PasswordGenerator, popular: true },
+  { slug: "password-generator", name: "Password Generator", description: "Generate strong, secure random passwords online free — customize length and character sets.", category: "security", icon: Lock, component: PasswordGenerator, popular: true },
   { slug: "password-strength", name: "Password Strength Checker", description: "Estimate password entropy and strength.", category: "security", icon: ShieldCheck, component: PasswordStrength },
   { slug: "bcrypt-generator", name: "Bcrypt Generator", description: "Generate bcrypt hashes.", category: "security", icon: Hash },
   { slug: "hmac-generator", name: "HMAC Generator", description: "Generate HMAC signatures.", category: "security", icon: Hash },
@@ -189,7 +189,7 @@ export const TOOLS: Tool[] = [
   { slug: "random-text", name: "Random Text Generator", description: "Generate random strings and words.", category: "text", icon: Wand2, component: RandomText },
 
   // Encoding
-  { slug: "base64-encode", name: "Base64 Encode", description: "Encode text to Base64.", category: "encoding", icon: Binary, component: () => <Base64Tool mode="encode" />, popular: true },
+  { slug: "base64-encode", name: "Base64 Encode", description: "Encode text to Base64 online free — a fast, client-side Base64 encoder, no data leaves your browser.", category: "encoding", icon: Binary, component: () => <Base64Tool mode="encode" />, popular: true },
   { slug: "base64-decode", name: "Base64 Decode", description: "Decode Base64 to text.", category: "encoding", icon: Binary, component: () => <Base64Tool mode="decode" /> },
   { slug: "url-encode", name: "URL Encode", description: "Percent-encode URLs and components.", category: "encoding", icon: LinkIcon, component: () => <UrlEncoderTool mode="encode" />, popular: true },
   { slug: "url-decode", name: "URL Decode", description: "Decode percent-encoded URLs.", category: "encoding", icon: LinkIcon, component: () => <UrlEncoderTool mode="decode" /> },
@@ -199,7 +199,7 @@ export const TOOLS: Tool[] = [
   { slug: "unicode-decode", name: "Unicode Decode", description: "Decode Unicode escapes to text.", category: "encoding", icon: Binary },
 
   // Design
-  { slug: "qr-generator", name: "QR Code Generator", description: "Generate QR codes with custom size and color.", category: "design", icon: QrCode, component: QrGenerator, popular: true },
+  { slug: "qr-generator", name: "QR Code Generator", description: "Free QR code generator online — create custom QR codes with adjustable size and color.", category: "design", icon: QrCode, component: QrGenerator, popular: true },
   { slug: "qr-scanner", name: "QR Scanner", description: "Scan QR codes from your camera or an image.", category: "design", icon: ScanLine, component: QrScanner, popular: true },
   { slug: "color-picker", name: "Color Picker", description: "Pick colors and convert HEX / RGB / HSL.", category: "design", icon: Pipette, component: ColorPickerTool, popular: true },
   { slug: "hex-rgb-converter", name: "HEX ↔ RGB Converter", description: "Convert between HEX and RGB colors.", category: "design", icon: Palette, component: HexRgbConverter },
