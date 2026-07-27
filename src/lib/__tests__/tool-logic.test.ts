@@ -64,7 +64,7 @@ describe("unix time parsing", () => {
 
 describe("regex tester logic", () => {
   it("drops invalid and duplicate flags", () => {
-    expect(sanitizeFlags("ggixz!")).toBe("gix");
+    expect(sanitizeFlags("ggimxz!")).toBe("gim");
   });
   it("finds all global matches", () => {
     const { matches, error } = runRegex("\\d+", "g", "a1 b22 c333");
