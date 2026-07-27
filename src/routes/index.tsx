@@ -368,41 +368,42 @@ const TRENDING_CATEGORIES: string[] = [
 ];
 
 const WHY_USE = [
-  { icon: Gift, title: "Free Forever", desc: "Every tool is 100% free with no hidden limits or paywalls." },
-  { icon: UserX, title: "No Registration", desc: "Use every utility instantly — no signup, no login, no email." },
-  { icon: Rocket, title: "Fast Processing", desc: "Optimized to run instantly right in your browser." },
-  { icon: Lock, title: "Privacy First", desc: "Your data never leaves your device — nothing is uploaded." },
-  { icon: Smartphone, title: "Mobile Friendly", desc: "Fully responsive UI that works on any screen." },
-  { icon: Download, title: "Copy & Download", desc: "Instant copy to clipboard and one-click downloads." },
-  { icon: PaletteIcon, title: "Modern UI", desc: "Clean, dark, distraction-free interface built for focus." },
-  { icon: Code2, title: "Developer Friendly", desc: "Keyboard shortcuts, fast search, and sensible defaults." },
+  { icon: Gift, title: "Free Forever", desc: "Every developer tool on this site is 100% free online — no hidden limits, no paywalls, ever." },
+  { icon: UserX, title: "No Registration", desc: "Use any tool instantly. No signup, no login, no email required — just free online developer tools, ready when you are." },
+  { icon: Rocket, title: "Fast Processing", desc: "All tools run client-side in your browser for instant results — no server round-trip, no waiting." },
+  { icon: Lock, title: "Privacy First", desc: "Your data never leaves your device. These are genuinely privacy-first developer tools — nothing is uploaded or stored." },
+  { icon: Smartphone, title: "Mobile Friendly", desc: "A fully responsive design means these free online tools work smoothly on desktop, tablet and mobile." },
+  { icon: Download, title: "Copy & Download", desc: "One-click copy to clipboard or download your output — built for a fast developer workflow." },
+  { icon: PaletteIcon, title: "Modern UI", desc: "A clean, dark, distraction-free interface designed for focus — no ads, no clutter." },
+  { icon: Code2, title: "Developer Friendly", desc: "Keyboard shortcuts, instant search and sensible defaults across every tool in the toolkit." },
 ];
 
 const STEPS = [
-  { icon: MousePointerClick, title: "Choose a tool", desc: "Pick from 100+ free online developer tools." },
-  { icon: ClipboardPaste, title: "Paste your input", desc: "Drop in your code, text, JSON, or URL." },
-  { icon: Zap, title: "Get instant result", desc: "Everything runs locally — no server round-trip." },
-  { icon: CheckCircle2, title: "Copy or download", desc: "One click to copy or save the output." },
+  { icon: MousePointerClick, title: "Choose a tool", desc: "Pick from 100+ free online developer tools organized by category." },
+  { icon: ClipboardPaste, title: "Paste your input", desc: "Drop in your JSON, code, text or URL — no file upload required." },
+  { icon: Zap, title: "Get instant result", desc: "Everything processes client-side in your browser — no server round-trip, no delay." },
+  { icon: CheckCircle2, title: "Copy or download", desc: "One click to copy your result or download it as a file." },
 ];
 
 const FAQS = [
-  { q: "Is Developer Toolkit really free?", a: "Yes — every utility is free forever, with no hidden limits, no paywalls, and no signup. The project is designed as a permanent, ad-light home for the small tools developers reach for every day." },
-  { q: "Do you store or upload my data?", a: "No. Every tool runs entirely inside your browser using client-side JavaScript. Your input never touches a server, which makes the toolkit safe for secrets, tokens, internal payloads and private code." },
-  { q: "Does it work offline?", a: "Once the page has loaded, most tools continue to work without a network connection because the processing happens locally. You can bookmark a specific tool and reopen it any time." },
-  { q: "Which formats and languages are supported?", a: "The toolkit covers JSON, HTML, CSS, JavaScript, text transforms, common encodings (Base64, URL, HTML entities, Unicode), cryptography (SHA family, MD5, HMAC), and design utilities such as QR codes, colors and gradients." },
-  { q: "Can I use these tools at work?", a: "Yes. Because nothing is uploaded, the toolkit is safe to use for internal or confidential data. Many teams use it alongside their IDE for quick formatting, validation and encoding tasks." },
-  { q: "How is this different from other online tools?", a: "Developer Toolkit is built as a single, coherent product — one design system, one search, one place to find every utility — instead of a collection of disconnected pages full of ads." },
-  { q: "Do I need to install anything?", a: "No installation is required. Everything works in a modern browser on desktop, tablet or phone. There is no extension, no desktop app and no account to manage." },
-  { q: "Can I request a new tool?", a: "Absolutely. The roadmap is community-driven — send suggestions via the feedback link in the footer and popular requests are prioritised in future releases." },
+  { q: "Is Developer Toolkit really free?", a: "Yes. Every tool — from the JSON formatter to the QR code generator — is completely free online, with no hidden fees, paywalls or premium tiers." },
+  { q: "Do you store or upload my data?", a: "No. All tools are 100% client-side, meaning your JSON, text and files are processed locally in your browser and never uploaded to a server." },
+  { q: "Does it work offline?", a: "Most tools work without an internet connection once the page has loaded, since processing happens entirely client-side in your browser." },
+  { q: "Which formats and languages are supported?", a: "Developer Toolkit supports JSON, HTML, CSS, JavaScript, Base64, JWT, regex, UUID, SHA256 hashing, QR codes and more across 8 tool categories." },
+  { q: "Can I use these tools at work?", a: "Yes. Because everything runs client-side with no signup or data upload, these free online developer tools are safe for use with sensitive or proprietary data." },
+  { q: "How is this different from other online tools?", a: "No ads, no signup walls, no data upload — just fast, free, privacy-first developer tools in a clean interface." },
+  { q: "Do I need to install anything?", a: "No installation needed. Every tool runs directly in your browser as a free online utility." },
+  { q: "Can I request a new tool?", a: "Yes — reach out via the contact link in the footer and we'll consider it for a future update." },
 ];
 
 const RESOURCES: { title: string; desc: string; slug: string; icon: typeof BookOpen }[] = [
-  { title: "JSON Formatting Guide", desc: "Structure, indent and inspect complex API responses with confidence.", slug: "json-viewer", icon: FileJson },
-  { title: "Understanding Base64 Encoding", desc: "When to reach for binary-to-text encoding and how to avoid the common pitfalls.", slug: "base64-decode", icon: Binary },
-  { title: "Generate Secure Passwords", desc: "Practical rules for entropy, length and safe storage across your accounts.", slug: "password-generator", icon: KeyRound },
-  { title: "Working with UUID", desc: "Pick the right version for primary keys, request IDs and distributed systems.", slug: "uuid-generator", icon: Fingerprint },
-  { title: "HTML Optimization Tips", desc: "Slim down markup, ship less over the wire and improve Core Web Vitals.", slug: "html-minifier", icon: FileCode },
-  { title: "CSS Optimization Guide", desc: "Cleaner stylesheets, faster parsing and easier debugging in devtools.", slug: "css-beautifier", icon: Paintbrush },
-  { title: "Regex Basics", desc: "A friendly primer on patterns, flags and building expressions that stick.", slug: "regex-tester", icon: Regex },
-  { title: "QR Code Scanner Guide", desc: "How QR decoding works and best practices for camera-based scanning.", slug: "qr-scanner", icon: ScanLine },
+  { title: "JSON Formatting Guide", desc: "How to Format and Validate JSON Online: structure, indent and inspect complex API responses with confidence.", slug: "json-viewer", icon: FileJson },
+  { title: "Understanding Base64 Encoding", desc: "Base64 Encoding Explained: when to use binary-to-text encoding and how to avoid common decoding pitfalls.", slug: "base64-decode", icon: Binary },
+  { title: "Generate Secure Passwords", desc: "How to Generate a Strong Password Online: practical rules for entropy, length and safe storage.", slug: "password-generator", icon: KeyRound },
+  { title: "Working with UUID", desc: "UUID Versions Explained: choosing the right UUID for primary keys, request IDs and distributed systems.", slug: "uuid-generator", icon: Fingerprint },
+  { title: "HTML Optimization Tips", desc: "How to Minify HTML for Faster Page Load: slim down markup and improve Core Web Vitals.", slug: "html-minifier", icon: FileCode },
+  { title: "CSS Optimization Guide", desc: "CSS Beautifier vs Minifier: cleaner stylesheets, faster parsing and easier debugging in devtools.", slug: "css-beautifier", icon: Paintbrush },
+  { title: "Regex Basics", desc: "Regex Tester Guide: a friendly primer on patterns, flags and building expressions that stick.", slug: "regex-tester", icon: Regex },
+  { title: "QR Code Scanner Guide", desc: "How QR Code Scanning Works: decoding basics and best practices for camera-based scanning.", slug: "qr-scanner", icon: ScanLine },
+
 ];
