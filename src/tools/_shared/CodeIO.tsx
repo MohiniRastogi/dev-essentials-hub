@@ -1,8 +1,10 @@
+import { toast } from "sonner";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { ToolPanel } from "@/components/common/ToolShell";
 import { CopyButton, downloadText } from "@/components/common/CopyButton";
 import { Download, Trash2, Wand2 } from "lucide-react";
+
 
 export function CodeIO({
   input,
@@ -39,8 +41,16 @@ export function CodeIO({
         title="Output"
         actions={
           <>
-            <CopyButton value={output} />
-            <Button size="sm" variant="outline" disabled={!output} onClick={() => downloadText(filename, output, mime)}>
+            <CopyButton value={output} disabled={!output} />
+            <Button
+              size="sm"
+              variant="outline"
+              disabled={!output}
+              onClick={() => {
+                downloadText(filename, output, mime);
+                toast.success(`Downloaded ${filename}`);
+              }}
+            >
               <Download className="h-4 w-4" /> Download
             </Button>
           </>
@@ -51,8 +61,8 @@ export function CodeIO({
         </pre>
       </ToolPanel>
       <div className="lg:col-span-2 flex gap-2">
-        <Button onClick={onRun}><Wand2 className="h-4 w-4" /> {runLabel}</Button>
-        <Button variant="outline" onClick={onClear}><Trash2 className="h-4 w-4" /> Clear</Button>
+        <Button onClick={onRun} disabled={!input.trim()}><Wand2 className="h-4 w-4" /> {runLabel}</Button>
+        <Button variant="outline" disabled={!input && !output} onClick={onClear}><Trash2 className="h-4 w-4" /> Clear</Button>
       </div>
     </div>
   );

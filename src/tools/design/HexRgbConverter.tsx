@@ -1,27 +1,11 @@
 import { useMemo, useState } from "react";
+import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ToolPanel } from "@/components/common/ToolShell";
 import { CopyButton } from "@/components/common/CopyButton";
+import { hexToRgb, parseRgb, rgbToHex } from "@/lib/tool-logic";
 import { Trash2 } from "lucide-react";
-
-function hexToRgb(hex: string) {
-  let h = hex.trim().replace(/^#/, "");
-  if (/^[0-9a-f]{3}$/i.test(h)) h = h.split("").map((c) => c + c).join("");
-  if (!/^[0-9a-f]{6}$/i.test(h)) return null;
-  const n = parseInt(h, 16);
-  return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255 };
-}
-function rgbToHex(r: number, g: number, b: number) {
-  return "#" + [r, g, b].map((v) => Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2, "0")).join("").toUpperCase();
-}
-function parseRgb(input: string) {
-  const nums = input.match(/-?\d+(\.\d+)?/g);
-  if (!nums || nums.length < 3) return null;
-  const [r, g, b] = nums.slice(0, 3).map(Number);
-  if ([r, g, b].some((v) => v < 0 || v > 255)) return null;
-  return { r, g, b };
-}
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
@@ -30,7 +14,7 @@ function Row({ label, value }: { label: string; value: string }) {
         <p className="text-xs uppercase tracking-wider text-muted-foreground">{label}</p>
         <p className="font-mono-editor truncate text-sm">{value || "—"}</p>
       </div>
-      <CopyButton value={value} label="" size="sm" variant="ghost" />
+      <CopyButton value={value} label="" size="sm" variant="ghost" disabled={!value} />
     </div>
   );
 }
@@ -52,14 +36,24 @@ export function HexRgbConverter() {
             type="color"
             value={preview}
             onChange={(e) => {
+              const c = hexToRgb(e.target.value);
+              if (!c) return;
               setHex(e.target.value.toUpperCase());
-              const c = hexToRgb(e.target.value)!;
               setRgbText(`${c.r}, ${c.g}, ${c.b}`);
             }}
             className="h-10 w-16 cursor-pointer rounded"
             aria-label="Color picker"
           />
-          <Button size="sm" variant="ghost" onClick={() => { setHex(""); setRgbText(""); }}>
+          <Button
+            size="sm"
+            variant="ghost"
+            disabled={!hex && !rgbText}
+            onClick={() => {
+              setHex("");
+              setRgbText("");
+              toast.success("Cleared");
+            }}
+          >
             <Trash2 className="h-4 w-4" /> Clear
           </Button>
         </div>
@@ -75,9 +69,14 @@ export function HexRgbConverter() {
               if (c) setRgbText(`${c.r}, ${c.g}, ${c.b}`);
             }}
             placeholder="#22C55E"
+            aria-invalid={Boolean(hex.trim() && !fromHex)}
             className="font-mono-editor"
           />
-          {hex.trim() && !fromHex && <p className="mt-2 text-sm text-destructive">Enter a valid 3 or 6 digit HEX color.</p>}
+          {hex.trim() && !fromHex && (
+            <p className="mt-2 text-sm text-destructive">
+              Enter a valid 3 or 6 digit HEX color, for example #22C55E or #2C5.
+            </p>
+          )}
           <div className="mt-3 grid gap-2">
             <Row label="RGB" value={fromHex ? `rgb(${fromHex.r}, ${fromHex.g}, ${fromHex.b})` : ""} />
             <Row label="Values" value={fromHex ? `${fromHex.r}, ${fromHex.g}, ${fromHex.b}` : ""} />
@@ -93,9 +92,12 @@ export function HexRgbConverter() {
               if (c) setHex(rgbToHex(c.r, c.g, c.b));
             }}
             placeholder="34, 197, 94"
+            aria-invalid={Boolean(rgbText.trim() && !fromRgb)}
             className="font-mono-editor"
           />
-          {rgbText.trim() && !fromRgb && <p className="mt-2 text-sm text-destructive">Enter three values between 0 and 255.</p>}
+          {rgbText.trim() && !fromRgb && (
+            <p className="mt-2 text-sm text-destructive">Enter three numbers between 0 and 255, for example 34, 197, 94.</p>
+          )}
           <div className="mt-3 grid gap-2">
             <Row label="HEX" value={fromRgb ? rgbToHex(fromRgb.r, fromRgb.g, fromRgb.b) : ""} />
           </div>

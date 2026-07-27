@@ -9,57 +9,76 @@ const SIZES = [16, 32, 48, 64, 180];
 export function FaviconGenerator() {
   const [src, setSrc] = useState<string | null>(null);
   const [icons, setIcons] = useState<{ size: number; url: string }[]>([]);
+  const [busy, setBusy] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
 
   const reset = () => {
     icons.forEach((i) => URL.revokeObjectURL(i.url));
     setIcons([]);
     setSrc(null);
+    toast.success("Cleared");
   };
 
   const handleFile = async (file: File) => {
     if (!/^image\/(png|jpeg|jpg|svg\+xml|webp)$/.test(file.type)) {
-      toast.error("Upload a PNG, JPG, WEBP or SVG image");
+      toast.error("Unsupported file type — upload a PNG, JPG, WEBP or SVG image.");
       return;
     }
     if (file.size > 5_000_000) {
-      toast.error("File is larger than 5 MB");
+      toast.error("File is larger than 5 MB — try a smaller image.");
       return;
     }
-    const dataUrl = await new Promise<string>((resolve, reject) => {
-      const r = new FileReader();
-      r.onload = () => resolve(r.result as string);
-      r.onerror = () => reject(new Error("Could not read the file"));
-      r.readAsDataURL(file);
-    });
+    setBusy(true);
+    let dataUrl: string;
+    try {
+      dataUrl = await new Promise<string>((resolve, reject) => {
+        const r = new FileReader();
+        r.onload = () => resolve(r.result as string);
+        r.onerror = () => reject(new Error("Could not read the file"));
+        r.readAsDataURL(file);
+      });
+    } catch (e) {
+      setBusy(false);
+      toast.error((e as Error).message);
+      return;
+    }
 
     const img = new Image();
     img.onload = () => {
       const generated: { size: number; url: string }[] = [];
       let pending = SIZES.length;
+      const finish = () => {
+        generated.sort((a, b) => a.size - b.size);
+        setIcons(generated);
+        setSrc(dataUrl);
+        setBusy(false);
+        if (generated.length) toast.success(`Generated ${generated.length} favicon sizes`);
+        else toast.error("Could not render the favicons in this browser.");
+      };
       SIZES.forEach((size) => {
         const canvas = document.createElement("canvas");
         canvas.width = size;
         canvas.height = size;
         const ctx = canvas.getContext("2d");
-        if (!ctx) { pending--; return; }
+        if (!ctx) {
+          if (--pending === 0) finish();
+          return;
+        }
         ctx.imageSmoothingQuality = "high";
         ctx.drawImage(img, 0, 0, size, size);
         canvas.toBlob((blob) => {
           if (blob) generated.push({ size, url: URL.createObjectURL(blob) });
-          pending--;
-          if (pending === 0) {
-            generated.sort((a, b) => a.size - b.size);
-            setIcons(generated);
-            setSrc(dataUrl);
-            toast.success("Favicons generated");
-          }
+          if (--pending === 0) finish();
         }, "image/png");
       });
     };
-    img.onerror = () => toast.error("That image could not be loaded");
+    img.onerror = () => {
+      setBusy(false);
+      toast.error("That image could not be loaded — it may be corrupted.");
+    };
     img.src = dataUrl;
   };
+
 
   const downloadAll = () => {
     icons.forEach((icon, idx) => {
@@ -81,12 +100,13 @@ export function FaviconGenerator() {
         title="Source image"
         actions={
           <>
-            <Button size="sm" variant="outline" onClick={() => fileRef.current?.click()}>
-              <Upload className="h-4 w-4" /> Upload
+            <Button size="sm" variant="outline" disabled={busy} onClick={() => fileRef.current?.click()}>
+              <Upload className="h-4 w-4" /> {busy ? "Processing…" : "Upload"}
             </Button>
-            <Button size="sm" variant="ghost" onClick={reset} disabled={!src}>
+            <Button size="sm" variant="ghost" onClick={reset} disabled={!src || busy}>
               <Trash2 className="h-4 w-4" /> Clear
             </Button>
+
           </>
         }
       >

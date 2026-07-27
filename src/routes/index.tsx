@@ -44,16 +44,46 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "100+ Free Online Developer Tools — Format, Convert, Generate & More" },
-      { name: "description", content: "Free online developer tools to format, convert, generate, encode, decode and optimize code. JSON, Base64, JWT, UUID, SHA256, QR code, regex and more — fast, private, no signup." },
-      { property: "og:title", content: "Developer Toolkit — 100+ Free Online Developer Tools" },
-      { property: "og:description", content: "Format JSON, decode JWT, generate UUIDs, hash SHA256, minify CSS, create QR codes and more. Free, fast and browser-based." },
+      { title: "100+ Free Online Developer Tools — JSON, Base64, JWT, Regex & More" },
+      {
+        name: "description",
+        content:
+          "Free online developer tools to format JSON, decode JWT, encode Base64, generate UUIDs, hash SHA256, test regex, create QR codes and more. 100% client-side, no signup, no data upload.",
+      },
+      {
+        name: "keywords",
+        content:
+          "online developer tools, free developer tools no signup, json formatter online, base64 encode decode online, jwt decoder online, regex tester online, qr code generator free, uuid generator online, sha256 hash generator, css gradient generator, html minifier, client-side developer tools, privacy-first coding tools",
+      },
+      { property: "og:title", content: "100+ Free Online Developer Tools — Developer Toolkit" },
+      {
+        property: "og:description",
+        content:
+          "Format, convert, generate and inspect code instantly. Free browser-based developer tools — JSON, Base64, JWT, regex, QR codes and more. No signup required.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: FAQS.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
     ],
   }),
   component: Index,
 });
+
 
 function Index() {
   const featuredSlugs = [
@@ -85,21 +115,22 @@ function Index() {
         <div className="relative mx-auto max-w-6xl px-4 pb-16 pt-20 text-center sm:pt-24">
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
             <span className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/40 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
-              <Sparkles className="h-3.5 w-3.5 text-primary" /> {TOOLS.length}+ tools · 100% client-side · No signup
+              <Sparkles className="h-3.5 w-3.5 text-primary" /> {TOOLS.length}+ Free Tools · 100% Client-Side Processing · No Signup Required
             </span>
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.05 }}
             className="mx-auto mt-6 max-w-3xl bg-gradient-to-b from-foreground to-foreground/60 bg-clip-text text-4xl font-bold leading-tight text-transparent sm:text-6xl"
           >
-            The developer toolkit that feels made for you
+            100+ Free Online Developer Tools — Format, Convert &amp; Generate Instantly
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}
             className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg"
           >
-            Format, convert, generate and inspect — a fast, private workspace of everyday utilities, right in your browser.
+            A fast, private workspace of JSON formatters, Base64 encoders, JWT decoders, regex testers, QR generators and more — all running client-side in your browser. No signup, no uploads, no limits.
           </motion.p>
+
 
           <div className="relative mx-auto mt-8 max-w-xl">
             <div className="relative">
@@ -166,7 +197,7 @@ function Index() {
 
       {/* Explore by Category */}
       <section className="mx-auto max-w-7xl px-4 pb-16 pt-10">
-        <SectionHeader title="Categories" subtitle="Everything organised by what you're building." />
+        <SectionHeader title="Categories" subtitle="Browse 100+ free online developer tools organized by category — everything you need to format, convert, generate and inspect code, right in your browser." />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {CATEGORIES.map((c) => {
             const Icon = c.icon;
@@ -188,7 +219,7 @@ function Index() {
       <section className="mx-auto max-w-7xl px-4 pb-16">
         <SectionHeader
           title="Featured tools"
-          subtitle="Hand-picked utilities that save developers hours every week."
+          subtitle="Hand-picked free online developer tools — JSON formatting, password generation, regex testing, QR code creation and more, used by thousands of developers every week."
           cta={<Link to="/tools" className="text-sm text-primary hover:underline">See all →</Link>}
         />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -198,7 +229,7 @@ function Index() {
 
       {/* Trending Categories (not tools — avoids repeats) */}
       <section className="mx-auto max-w-7xl px-4 pb-16">
-        <SectionHeader title="Trending categories" subtitle="What developers are exploring most this week." />
+        <SectionHeader title="Trending categories" subtitle="See which free developer tools and online utilities other developers are exploring most this week." />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {TRENDING_CATEGORIES.map((slug) => {
             const c = CATEGORIES.find((x) => x.slug === slug);
@@ -262,7 +293,7 @@ function Index() {
 
       {/* Developer Resources */}
       <section className="mx-auto max-w-7xl px-4 pb-16">
-        <SectionHeader title="Developer resources" subtitle="Practical guides that pair with the tools you already use." />
+        <SectionHeader title="Developer resources" subtitle="Practical developer guides that pair with the free online tools you already use — JSON formatting, Base64 encoding, regex patterns, UUID versions and more." />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {RESOURCES.map((r) => {
             const Icon = r.icon;
@@ -337,41 +368,42 @@ const TRENDING_CATEGORIES: string[] = [
 ];
 
 const WHY_USE = [
-  { icon: Gift, title: "Free Forever", desc: "Every tool is 100% free with no hidden limits or paywalls." },
-  { icon: UserX, title: "No Registration", desc: "Use every utility instantly — no signup, no login, no email." },
-  { icon: Rocket, title: "Fast Processing", desc: "Optimized to run instantly right in your browser." },
-  { icon: Lock, title: "Privacy First", desc: "Your data never leaves your device — nothing is uploaded." },
-  { icon: Smartphone, title: "Mobile Friendly", desc: "Fully responsive UI that works on any screen." },
-  { icon: Download, title: "Copy & Download", desc: "Instant copy to clipboard and one-click downloads." },
-  { icon: PaletteIcon, title: "Modern UI", desc: "Clean, dark, distraction-free interface built for focus." },
-  { icon: Code2, title: "Developer Friendly", desc: "Keyboard shortcuts, fast search, and sensible defaults." },
+  { icon: Gift, title: "Free Forever", desc: "Every developer tool on this site is 100% free online — no hidden limits, no paywalls, ever." },
+  { icon: UserX, title: "No Registration", desc: "Use any tool instantly. No signup, no login, no email required — just free online developer tools, ready when you are." },
+  { icon: Rocket, title: "Fast Processing", desc: "All tools run client-side in your browser for instant results — no server round-trip, no waiting." },
+  { icon: Lock, title: "Privacy First", desc: "Your data never leaves your device. These are genuinely privacy-first developer tools — nothing is uploaded or stored." },
+  { icon: Smartphone, title: "Mobile Friendly", desc: "A fully responsive design means these free online tools work smoothly on desktop, tablet and mobile." },
+  { icon: Download, title: "Copy & Download", desc: "One-click copy to clipboard or download your output — built for a fast developer workflow." },
+  { icon: PaletteIcon, title: "Modern UI", desc: "A clean, dark, distraction-free interface designed for focus — no ads, no clutter." },
+  { icon: Code2, title: "Developer Friendly", desc: "Keyboard shortcuts, instant search and sensible defaults across every tool in the toolkit." },
 ];
 
 const STEPS = [
-  { icon: MousePointerClick, title: "Choose a tool", desc: "Pick from 100+ free online developer tools." },
-  { icon: ClipboardPaste, title: "Paste your input", desc: "Drop in your code, text, JSON, or URL." },
-  { icon: Zap, title: "Get instant result", desc: "Everything runs locally — no server round-trip." },
-  { icon: CheckCircle2, title: "Copy or download", desc: "One click to copy or save the output." },
+  { icon: MousePointerClick, title: "Choose a tool", desc: "Pick from 100+ free online developer tools organized by category." },
+  { icon: ClipboardPaste, title: "Paste your input", desc: "Drop in your JSON, code, text or URL — no file upload required." },
+  { icon: Zap, title: "Get instant result", desc: "Everything processes client-side in your browser — no server round-trip, no delay." },
+  { icon: CheckCircle2, title: "Copy or download", desc: "One click to copy your result or download it as a file." },
 ];
 
 const FAQS = [
-  { q: "Is Developer Toolkit really free?", a: "Yes — every utility is free forever, with no hidden limits, no paywalls, and no signup. The project is designed as a permanent, ad-light home for the small tools developers reach for every day." },
-  { q: "Do you store or upload my data?", a: "No. Every tool runs entirely inside your browser using client-side JavaScript. Your input never touches a server, which makes the toolkit safe for secrets, tokens, internal payloads and private code." },
-  { q: "Does it work offline?", a: "Once the page has loaded, most tools continue to work without a network connection because the processing happens locally. You can bookmark a specific tool and reopen it any time." },
-  { q: "Which formats and languages are supported?", a: "The toolkit covers JSON, HTML, CSS, JavaScript, text transforms, common encodings (Base64, URL, HTML entities, Unicode), cryptography (SHA family, MD5, HMAC), and design utilities such as QR codes, colors and gradients." },
-  { q: "Can I use these tools at work?", a: "Yes. Because nothing is uploaded, the toolkit is safe to use for internal or confidential data. Many teams use it alongside their IDE for quick formatting, validation and encoding tasks." },
-  { q: "How is this different from other online tools?", a: "Developer Toolkit is built as a single, coherent product — one design system, one search, one place to find every utility — instead of a collection of disconnected pages full of ads." },
-  { q: "Do I need to install anything?", a: "No installation is required. Everything works in a modern browser on desktop, tablet or phone. There is no extension, no desktop app and no account to manage." },
-  { q: "Can I request a new tool?", a: "Absolutely. The roadmap is community-driven — send suggestions via the feedback link in the footer and popular requests are prioritised in future releases." },
+  { q: "Is Developer Toolkit really free?", a: "Yes. Every tool — from the JSON formatter to the QR code generator — is completely free online, with no hidden fees, paywalls or premium tiers." },
+  { q: "Do you store or upload my data?", a: "No. All tools are 100% client-side, meaning your JSON, text and files are processed locally in your browser and never uploaded to a server." },
+  { q: "Does it work offline?", a: "Most tools work without an internet connection once the page has loaded, since processing happens entirely client-side in your browser." },
+  { q: "Which formats and languages are supported?", a: "Developer Toolkit supports JSON, HTML, CSS, JavaScript, Base64, JWT, regex, UUID, SHA256 hashing, QR codes and more across 8 tool categories." },
+  { q: "Can I use these tools at work?", a: "Yes. Because everything runs client-side with no signup or data upload, these free online developer tools are safe for use with sensitive or proprietary data." },
+  { q: "How is this different from other online tools?", a: "No ads, no signup walls, no data upload — just fast, free, privacy-first developer tools in a clean interface." },
+  { q: "Do I need to install anything?", a: "No installation needed. Every tool runs directly in your browser as a free online utility." },
+  { q: "Can I request a new tool?", a: "Yes — reach out via the contact link in the footer and we'll consider it for a future update." },
 ];
 
 const RESOURCES: { title: string; desc: string; slug: string; icon: typeof BookOpen }[] = [
-  { title: "JSON Formatting Guide", desc: "Structure, indent and inspect complex API responses with confidence.", slug: "json-viewer", icon: FileJson },
-  { title: "Understanding Base64 Encoding", desc: "When to reach for binary-to-text encoding and how to avoid the common pitfalls.", slug: "base64-decode", icon: Binary },
-  { title: "Generate Secure Passwords", desc: "Practical rules for entropy, length and safe storage across your accounts.", slug: "password-generator", icon: KeyRound },
-  { title: "Working with UUID", desc: "Pick the right version for primary keys, request IDs and distributed systems.", slug: "uuid-generator", icon: Fingerprint },
-  { title: "HTML Optimization Tips", desc: "Slim down markup, ship less over the wire and improve Core Web Vitals.", slug: "html-minifier", icon: FileCode },
-  { title: "CSS Optimization Guide", desc: "Cleaner stylesheets, faster parsing and easier debugging in devtools.", slug: "css-beautifier", icon: Paintbrush },
-  { title: "Regex Basics", desc: "A friendly primer on patterns, flags and building expressions that stick.", slug: "regex-tester", icon: Regex },
-  { title: "QR Code Scanner Guide", desc: "How QR decoding works and best practices for camera-based scanning.", slug: "qr-scanner", icon: ScanLine },
+  { title: "JSON Formatting Guide", desc: "How to Format and Validate JSON Online: structure, indent and inspect complex API responses with confidence.", slug: "json-viewer", icon: FileJson },
+  { title: "Understanding Base64 Encoding", desc: "Base64 Encoding Explained: when to use binary-to-text encoding and how to avoid common decoding pitfalls.", slug: "base64-decode", icon: Binary },
+  { title: "Generate Secure Passwords", desc: "How to Generate a Strong Password Online: practical rules for entropy, length and safe storage.", slug: "password-generator", icon: KeyRound },
+  { title: "Working with UUID", desc: "UUID Versions Explained: choosing the right UUID for primary keys, request IDs and distributed systems.", slug: "uuid-generator", icon: Fingerprint },
+  { title: "HTML Optimization Tips", desc: "How to Minify HTML for Faster Page Load: slim down markup and improve Core Web Vitals.", slug: "html-minifier", icon: FileCode },
+  { title: "CSS Optimization Guide", desc: "CSS Beautifier vs Minifier: cleaner stylesheets, faster parsing and easier debugging in devtools.", slug: "css-beautifier", icon: Paintbrush },
+  { title: "Regex Basics", desc: "Regex Tester Guide: a friendly primer on patterns, flags and building expressions that stick.", slug: "regex-tester", icon: Regex },
+  { title: "QR Code Scanner Guide", desc: "How QR Code Scanning Works: decoding basics and best practices for camera-based scanning.", slug: "qr-scanner", icon: ScanLine },
+
 ];
