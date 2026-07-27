@@ -113,15 +113,16 @@ export interface Tool {
 }
 
 export const CATEGORIES: CategoryMeta[] = [
-  { slug: "json", name: "JSON Tools", description: "Format, validate, minify and convert JSON.", accent: "#3B82F6", icon: Braces },
-  { slug: "html", name: "HTML Tools", description: "Beautify, minify and encode HTML.", accent: "#F97316", icon: FileCode },
-  { slug: "css", name: "CSS Tools", description: "Generators for gradients, shadows, layouts.", accent: "#EC4899", icon: Paintbrush },
-  { slug: "javascript", name: "JavaScript Tools", description: "Beautify, minify, test regex and more.", accent: "#EAB308", icon: Code2 },
-  { slug: "security", name: "Security Tools", description: "Hashes, JWT, UUIDs and passwords.", accent: "#22C55E", icon: ShieldCheck },
-  { slug: "text", name: "Text Tools", description: "Count, convert and transform text.", accent: "#A855F7", icon: TextIcon },
-  { slug: "encoding", name: "Encoding Tools", description: "Base64, URL, HTML and Unicode.", accent: "#06B6D4", icon: Binary },
-  { slug: "design", name: "Design Tools", description: "QR codes, colors, gradients and SVG.", accent: "#F43F5E", icon: Palette },
+  { slug: "json", name: "JSON Tools", description: "Format, validate, minify and convert JSON online — including a JSON formatter, JSON validator and JSON to CSV converter.", accent: "#3B82F6", icon: Braces },
+  { slug: "html", name: "HTML Tools", description: "Beautify, minify and encode HTML instantly — free HTML tools for cleaner, faster markup.", accent: "#F97316", icon: FileCode },
+  { slug: "css", name: "CSS Tools", description: "Generate CSS gradients, box shadows, flexbox and grid layouts online — free CSS generator tools.", accent: "#EC4899", icon: Paintbrush },
+  { slug: "javascript", name: "JavaScript Tools", description: "Beautify, minify and test regex in JavaScript — free JS developer tools.", accent: "#EAB308", icon: Code2 },
+  { slug: "security", name: "Security Tools", description: "Generate SHA256 hashes, decode JWTs, create UUIDs and strong passwords online — free security tools.", accent: "#22C55E", icon: ShieldCheck },
+  { slug: "text", name: "Text Tools", description: "Count words, convert case and transform text online free — everyday text utility tools.", accent: "#A855F7", icon: TextIcon },
+  { slug: "encoding", name: "Encoding Tools", description: "Encode and decode Base64, URL, HTML entities and Unicode online — free encoding tools.", accent: "#06B6D4", icon: Binary },
+  { slug: "design", name: "Design Tools", description: "Generate QR codes, color palettes, gradients and SVGs free online — design tools for developers.", accent: "#F43F5E", icon: Palette },
 ];
+
 
 export const TOOLS: Tool[] = [
   // JSON
