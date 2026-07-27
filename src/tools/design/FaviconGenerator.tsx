@@ -100,12 +100,13 @@ export function FaviconGenerator() {
         title="Source image"
         actions={
           <>
-            <Button size="sm" variant="outline" onClick={() => fileRef.current?.click()}>
-              <Upload className="h-4 w-4" /> Upload
+            <Button size="sm" variant="outline" disabled={busy} onClick={() => fileRef.current?.click()}>
+              <Upload className="h-4 w-4" /> {busy ? "Processing…" : "Upload"}
             </Button>
-            <Button size="sm" variant="ghost" onClick={reset} disabled={!src}>
+            <Button size="sm" variant="ghost" onClick={reset} disabled={!src || busy}>
               <Trash2 className="h-4 w-4" /> Clear
             </Button>
+
           </>
         }
       >
