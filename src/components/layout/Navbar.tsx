@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoAsset from "@/assets/developer-toolkit-logo.png.asset.json";
+import logo from "@/assets/logo.png";
 import { siteConfig } from "@/lib/site-config";
 
 export function Navbar() {
@@ -10,7 +10,7 @@ export function Navbar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
         <Link to="/" className="flex items-center" aria-label="Developer Toolkit">
           <img
-            src={logoAsset.url}
+            src={logo}
             alt="Developer Toolkit"
             className="h-[34px] md:h-[40px] w-auto"
           />
