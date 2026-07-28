@@ -4,6 +4,7 @@ import { Github, Mail, MessageSquare } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import logoAsset from "@/assets/developer-toolkit-logo.png.asset.json";
+import { siteConfig } from "@/lib/site-config";
 
 export function Footer() {
   const popular = TOOLS.filter((t) => t.popular && isImplemented(t)).slice(0, 6);
@@ -34,13 +35,13 @@ export function Footer() {
             <Button type="submit" size="sm" className="h-9">Subscribe</Button>
           </form>
           <div className="mt-5 flex items-center gap-3 text-muted-foreground">
-            <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub" className="hover:text-foreground">
+            <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-foreground">
               <Github className="h-4 w-4" />
             </a>
-            <a href="mailto:hello@example.com" aria-label="Contact" className="hover:text-foreground">
+            <a href={siteConfig.contactMailto} aria-label="Contact" className="hover:text-foreground">
               <Mail className="h-4 w-4" />
             </a>
-            <a href="mailto:feedback@example.com" aria-label="Feedback" className="hover:text-foreground">
+            <a href={siteConfig.contactMailto} aria-label="Feedback" className="hover:text-foreground">
               <MessageSquare className="h-4 w-4" />
             </a>
           </div>
@@ -89,7 +90,7 @@ export function Footer() {
           <ul className="grid gap-1.5 text-sm">
             <li><a href="#" className="text-muted-foreground hover:text-primary">Privacy Policy</a></li>
             <li><a href="#" className="text-muted-foreground hover:text-primary">Terms</a></li>
-            <li><a href="mailto:hello@example.com" className="text-muted-foreground hover:text-primary">Contact</a></li>
+            <li><a href={siteConfig.contactMailto} className="text-muted-foreground hover:text-primary">Contact</a></li>
           </ul>
         </div>
       </div>
