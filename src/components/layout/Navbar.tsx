@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoAsset from "@/assets/developer-toolkit-logo.png.asset.json";
+import { siteConfig } from "@/lib/site-config";
 
 export function Navbar() {
   return (
@@ -21,7 +22,7 @@ export function Navbar() {
         </nav>
         <div className="flex items-center gap-2">
           <Button variant="ghost" size="icon" asChild>
-            <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <Github className="h-4 w-4" />
             </a>
           </Button>
