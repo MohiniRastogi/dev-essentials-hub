@@ -55,11 +55,11 @@ export const Route = createFileRoute("/")({
         content:
           "online developer tools, free developer tools no signup, json formatter online, base64 encode decode online, jwt decoder online, regex tester online, qr code generator free, uuid generator online, sha256 hash generator, css gradient generator, html minifier, client-side developer tools, privacy-first coding tools",
       },
-      { property: "og:title", content: "100+ Free Online Developer Tools — Developer Toolkit" },
+      { property: "og:title", content: "100+ Free Online Developer Tools — JSON, Base64, JWT, Regex & More" },
       {
         property: "og:description",
         content:
-          "Format, convert, generate and inspect code instantly. Free browser-based developer tools — JSON, Base64, JWT, regex, QR codes and more. No signup required.",
+          "Free online developer tools to format JSON, decode JWT, encode Base64, generate UUIDs, hash SHA256, test regex, create QR codes and more. 100% client-side, no signup, no data upload.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },

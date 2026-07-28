@@ -78,18 +78,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Developer Toolkit – AI Code Generator, Code Reviewer & Developer Utilities" },
+      { title: "100+ Free Online Developer Tools — JSON, Base64, JWT, Regex & More" },
       {
         name: "description",
         content:
-          "Developer Toolkit is an AI-powered platform for code generation, code review, debugging, formatting, conversion, and developer productivity tools.",
+          "Free online developer tools to format JSON, decode JWT, encode Base64, generate UUIDs, hash SHA256, test regex, create QR codes and more. 100% client-side, no signup, no data upload.",
       },
       { name: "author", content: "Developer Toolkit" },
       { property: "og:site_name", content: "Developer Toolkit" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "Developer Toolkit – AI Code Generator, Code Reviewer & Developer Utilities" },
-      { property: "og:description", content: "Developer Toolkit is an AI-powered platform for code generation, code review, debugging, formatting, conversion, and developer productivity tools." },
+      { property: "og:title", content: "100+ Free Online Developer Tools — JSON, Base64, JWT, Regex & More" },
+      { property: "og:description", content: "Free online developer tools to format JSON, decode JWT, encode Base64, generate UUIDs, hash SHA256, test regex, create QR codes and more. 100% client-side, no signup, no data upload." },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "100+ Free Online Developer Tools — JSON, Base64, JWT, Regex & More" },
+      { name: "twitter:description", content: "Free online developer tools to format JSON, decode JWT, encode Base64, generate UUIDs, hash SHA256, test regex, create QR codes and more. 100% client-side, no signup, no data upload." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/43dcdb6d-9fda-469d-b41b-15f474b51ee9/id-preview-64b37a00--3e1060c5-456b-45c1-8093-bf82f95d147c.lovable.app-1785142518309.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/43dcdb6d-9fda-469d-b41b-15f474b51ee9/id-preview-64b37a00--3e1060c5-456b-45c1-8093-bf82f95d147c.lovable.app-1785142518309.png" },
     ],
     links: [
       {
