@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Github } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 import { siteConfig } from "@/lib/site-config";
@@ -24,6 +24,11 @@ export function Navbar() {
           <Button variant="ghost" size="icon" asChild>
             <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <Github className="h-4 w-4" />
+            </a>
+          </Button>
+          <Button variant="ghost" size="icon" asChild>
+            <a href={siteConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <Linkedin className="h-4 w-4" />
             </a>
           </Button>
         </div>
