@@ -26,6 +26,11 @@ export function Navbar() {
               <Github className="h-4 w-4" />
             </a>
           </Button>
+          <Button variant="ghost" size="icon" asChild>
+            <a href={siteConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <Linkedin className="h-4 w-4" />
+            </a>
+          </Button>
         </div>
       </div>
     </header>
