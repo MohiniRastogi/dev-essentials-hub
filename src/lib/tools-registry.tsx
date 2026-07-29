@@ -64,6 +64,14 @@ import { HtmlViewer } from "@/tools/html/HtmlViewer";
 import { HtmlEscape } from "@/tools/html/HtmlEscape";
 import { CssBeautifier } from "@/tools/css/CssBeautifier";
 import { CssMinifier } from "@/tools/css/CssMinifier";
+import { BoxShadowGenerator } from "@/tools/css/BoxShadowGenerator";
+import { BorderRadiusGenerator } from "@/tools/css/BorderRadiusGenerator";
+import { GlassmorphismGenerator } from "@/tools/css/GlassmorphismGenerator";
+import { NeumorphismGenerator } from "@/tools/css/NeumorphismGenerator";
+import { AnimationGenerator } from "@/tools/css/AnimationGenerator";
+import { FlexboxGenerator } from "@/tools/css/FlexboxGenerator";
+import { GridGenerator } from "@/tools/css/GridGenerator";
+import { ClampGenerator } from "@/tools/css/ClampGenerator";
 import { SlugGenerator } from "@/tools/text/SlugGenerator";
 import { HtmlEntityTool } from "@/tools/encoding/HtmlEntityTool";
 import { LoremIpsum } from "@/tools/text/LoremIpsum";
@@ -149,14 +157,14 @@ export const TOOLS: Tool[] = [
   { slug: "css-beautifier", name: "CSS Beautifier", description: "Format CSS with proper indentation.", category: "css", icon: Paintbrush, component: CssBeautifier, popular: true },
   { slug: "css-minifier", name: "CSS Minifier", description: "Minify CSS for production.", category: "css", icon: FileMinus, component: CssMinifier },
   { slug: "gradient-generator", name: "Gradient Generator", description: "Design linear gradients with a live preview.", category: "css", icon: Blend, component: GradientGenerator, popular: true },
-  { slug: "box-shadow-generator", name: "Box Shadow Generator", description: "Craft box-shadow with visual controls.", category: "css", icon: Square },
-  { slug: "border-radius-generator", name: "Border Radius Generator", description: "Design border-radius per corner.", category: "css", icon: Box },
-  { slug: "glassmorphism-generator", name: "Glassmorphism Generator", description: "Generate frosted glass CSS.", category: "css", icon: Layers },
-  { slug: "neumorphism-generator", name: "Neumorphism Generator", description: "Generate soft neumorphic UI CSS.", category: "css", icon: Layers },
-  { slug: "animation-generator", name: "Animation Generator", description: "Compose CSS keyframe animations.", category: "css", icon: Sparkles },
-  { slug: "flexbox-generator", name: "Flexbox Generator", description: "Visual flexbox playground.", category: "css", icon: Move },
-  { slug: "grid-generator", name: "Grid Generator", description: "Design CSS Grid layouts.", category: "css", icon: Grid3x3 },
-  { slug: "clamp-generator", name: "Clamp Generator", description: "Fluid clamp() typography values.", category: "css", icon: Type },
+  { slug: "box-shadow-generator", name: "Box Shadow Generator", description: "Free online box-shadow generator with multiple layers, inset support and live CSS preview.", category: "css", icon: Square, component: BoxShadowGenerator },
+  { slug: "border-radius-generator", name: "Border Radius Generator", description: "Visual border-radius generator with per-corner controls and copyable CSS output.", category: "css", icon: Box, component: BorderRadiusGenerator },
+  { slug: "glassmorphism-generator", name: "Glassmorphism Generator", description: "Generate frosted glass CSS with backdrop-filter blur, opacity and border controls.", category: "css", icon: Layers, component: GlassmorphismGenerator },
+  { slug: "neumorphism-generator", name: "Neumorphism Generator", description: "Soft UI neumorphism CSS generator with flat, concave, convex and pressed shapes.", category: "css", icon: Layers, component: NeumorphismGenerator },
+  { slug: "animation-generator", name: "Animation Generator", description: "CSS animation generator with keyframes, timing functions, delay and direction controls.", category: "css", icon: Sparkles, component: AnimationGenerator },
+  { slug: "flexbox-generator", name: "Flexbox Generator", description: "Visual flexbox playground generating display:flex CSS with live layout preview.", category: "css", icon: Move, component: FlexboxGenerator },
+  { slug: "grid-generator", name: "Grid Generator", description: "CSS Grid generator with column, row, gap and custom track sizing plus live preview.", category: "css", icon: Grid3x3, component: GridGenerator },
+  { slug: "clamp-generator", name: "Clamp Generator", description: "Fluid typography clamp() generator with min/max font size and viewport calculations.", category: "css", icon: Type, component: ClampGenerator },
 
   // JavaScript
   { slug: "js-beautifier", name: "JS Beautifier", description: "Format and indent JavaScript.", category: "javascript", icon: Code2 },
