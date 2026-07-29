@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { CATEGORIES, TOOLS, isImplemented } from "@/lib/tools-registry";
-import { Github, Mail, MessageSquare } from "lucide-react";
+import { Github, Linkedin, Mail, MessageSquare } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
@@ -37,6 +37,9 @@ export function Footer() {
           <div className="mt-5 flex items-center gap-3 text-muted-foreground">
             <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="hover:text-foreground">
               <Github className="h-4 w-4" />
+            </a>
+            <a href={siteConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-foreground">
+              <Linkedin className="h-4 w-4" />
             </a>
             <a href={siteConfig.contactMailto} aria-label="Contact" className="hover:text-foreground">
               <Mail className="h-4 w-4" />
