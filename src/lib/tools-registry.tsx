@@ -60,6 +60,8 @@ import { ColorPickerTool } from "@/tools/design/ColorPickerTool";
 import { QrScanner } from "@/tools/design/QrScanner";
 import { HtmlBeautifier } from "@/tools/html/HtmlBeautifier";
 import { HtmlMinifier } from "@/tools/html/HtmlMinifier";
+import { HtmlViewer } from "@/tools/html/HtmlViewer";
+import { HtmlEscape } from "@/tools/html/HtmlEscape";
 import { CssBeautifier } from "@/tools/css/CssBeautifier";
 import { CssMinifier } from "@/tools/css/CssMinifier";
 import { SlugGenerator } from "@/tools/text/SlugGenerator";
@@ -140,8 +142,8 @@ export const TOOLS: Tool[] = [
   { slug: "html-minifier", name: "HTML Minifier", description: "Minify HTML for production.", category: "html", icon: FileMinus, component: HtmlMinifier },
   { slug: "html-encoder", name: "HTML Encoder", description: "Encode HTML entities for safe output.", category: "html", icon: ArrowLeftRight, component: () => <HtmlEntityTool mode="encode" /> },
   { slug: "html-decoder", name: "HTML Decoder", description: "Decode HTML entities to plain text.", category: "html", icon: ArrowLeftRight, component: () => <HtmlEntityTool mode="decode" /> },
-  { slug: "html-viewer", name: "HTML Viewer", description: "Preview raw HTML in a sandbox.", category: "html", icon: Eye },
-  { slug: "html-escape", name: "HTML Escape", description: "Escape HTML strings for embedding.", category: "html", icon: Scissors },
+  { slug: "html-viewer", name: "HTML Viewer", description: "Preview raw HTML live in a safe sandboxed iframe, or read it as source.", category: "html", icon: Eye, component: HtmlViewer },
+  { slug: "html-escape", name: "HTML Escape", description: "Escape &, <, >, \" and ' so a string is safe to embed inline in HTML.", category: "html", icon: Scissors, component: HtmlEscape },
 
   // CSS
   { slug: "css-beautifier", name: "CSS Beautifier", description: "Format CSS with proper indentation.", category: "css", icon: Paintbrush, component: CssBeautifier, popular: true },
