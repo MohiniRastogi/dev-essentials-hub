@@ -19,6 +19,8 @@ export function Navbar() {
           <Link to="/" className="hover:text-foreground [&.active]:text-foreground" activeOptions={{ exact: true }}>Home</Link>
           <Link to="/tools" className="hover:text-foreground [&.active]:text-foreground">All tools</Link>
           <Link to="/favorites" className="hover:text-foreground [&.active]:text-foreground">Favorites</Link>
+          <Link to="/about" className="hover:text-foreground [&.active]:text-foreground">About</Link>
+
         </nav>
         <div className="flex items-center gap-2">
           <Button variant="ghost" size="icon" asChild>
