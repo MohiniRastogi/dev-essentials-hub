@@ -88,6 +88,8 @@ export function Footer() {
             ))}
             <li><Link to="/tools" className="text-muted-foreground hover:text-primary">All tools</Link></li>
             <li><Link to="/favorites" className="text-muted-foreground hover:text-primary">Favorites</Link></li>
+            <li><Link to="/about" className="text-muted-foreground hover:text-primary">About the Developer</Link></li>
+
           </ul>
           <p className="mt-4 mb-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">Company</p>
           <ul className="grid gap-1.5 text-sm">
