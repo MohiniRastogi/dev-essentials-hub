@@ -102,7 +102,12 @@ export function Footer() {
       <div className="border-t border-border/50">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-5 text-xs text-muted-foreground sm:flex-row">
           <span>© {new Date().getFullYear()} Developer Toolkit. All rights reserved.</span>
-          <span className="tracking-wide">developed by <span className="text-foreground/80">Mohini Rastogi</span></span>
+          <span className="tracking-wide">developed by{" "}
+            <Link to="/about" className="text-foreground/80 underline-offset-4 hover:text-primary hover:underline">
+              Mohini Rastogi
+            </Link>
+          </span>
+
         </div>
       </div>
     </footer>
