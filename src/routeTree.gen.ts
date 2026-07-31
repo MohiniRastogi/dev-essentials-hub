@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ToolsRouteImport } from './routes/tools'
 import { Route as FavoritesRouteImport } from './routes/favorites'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TToolSlugRouteImport } from './routes/t.$toolSlug'
 import { Route as CategorySlugRouteImport } from './routes/category.$slug'
@@ -23,6 +24,11 @@ const ToolsRoute = ToolsRouteImport.update({
 const FavoritesRoute = FavoritesRouteImport.update({
   id: '/favorites',
   path: '/favorites',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -43,6 +49,7 @@ const CategorySlugRoute = CategorySlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/favorites': typeof FavoritesRoute
   '/tools': typeof ToolsRoute
   '/category/$slug': typeof CategorySlugRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/favorites': typeof FavoritesRoute
   '/tools': typeof ToolsRoute
   '/category/$slug': typeof CategorySlugRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/favorites': typeof FavoritesRoute
   '/tools': typeof ToolsRoute
   '/category/$slug': typeof CategorySlugRoute
@@ -65,12 +74,25 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/favorites' | '/tools' | '/category/$slug' | '/t/$toolSlug'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/favorites'
+    | '/tools'
+    | '/category/$slug'
+    | '/t/$toolSlug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/favorites' | '/tools' | '/category/$slug' | '/t/$toolSlug'
+  to:
+    | '/'
+    | '/about'
+    | '/favorites'
+    | '/tools'
+    | '/category/$slug'
+    | '/t/$toolSlug'
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/favorites'
     | '/tools'
     | '/category/$slug'
@@ -79,6 +101,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   FavoritesRoute: typeof FavoritesRoute
   ToolsRoute: typeof ToolsRoute
   CategorySlugRoute: typeof CategorySlugRoute
@@ -99,6 +122,13 @@ declare module '@tanstack/react-router' {
       path: '/favorites'
       fullPath: '/favorites'
       preLoaderRoute: typeof FavoritesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -127,6 +157,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   FavoritesRoute: FavoritesRoute,
   ToolsRoute: ToolsRoute,
   CategorySlugRoute: CategorySlugRoute,
