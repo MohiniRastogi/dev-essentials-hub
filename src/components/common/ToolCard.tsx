@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Star } from "lucide-react";
 import type { Tool } from "@/lib/tools-registry";
 import { getCategory, isImplemented } from "@/lib/tools-registry";
@@ -12,6 +12,7 @@ export function ToolCard({ tool }: { tool: Tool }) {
   const fav = isFavorite(tool.slug);
   const Icon = tool.icon;
   const live = isImplemented(tool);
+  const reduce = useReducedMotion();
 
   return (
     <motion.div
