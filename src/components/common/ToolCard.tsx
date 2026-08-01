@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Star } from "lucide-react";
 import type { Tool } from "@/lib/tools-registry";
 import { getCategory, isImplemented } from "@/lib/tools-registry";
@@ -12,9 +12,18 @@ export function ToolCard({ tool }: { tool: Tool }) {
   const fav = isFavorite(tool.slug);
   const Icon = tool.icon;
   const live = isImplemented(tool);
+  const reduce = useReducedMotion();
 
   return (
-    <motion.div whileHover={{ y: -3 }} transition={{ type: "spring", stiffness: 260, damping: 22 }} className="group relative">
+    <motion.div
+      initial={reduce ? undefined : { opacity: 0, scale: 0.97, y: 10 }}
+      whileInView={reduce ? undefined : { opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      whileHover={{ y: -3 }}
+      transition={{ type: "spring", stiffness: 260, damping: 22 }}
+      className="group relative"
+    >
+
       <Link
         to="/t/$toolSlug"
         params={{ toolSlug: tool.slug }}

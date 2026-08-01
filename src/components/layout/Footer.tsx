@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { CATEGORIES, TOOLS, isImplemented } from "@/lib/tools-registry";
-import { Github, Linkedin, Mail, MessageSquare } from "lucide-react";
+import { Github, Linkedin, Mail, MessageSquare, User } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
@@ -88,7 +88,11 @@ export function Footer() {
             ))}
             <li><Link to="/tools" className="text-muted-foreground hover:text-primary">All tools</Link></li>
             <li><Link to="/favorites" className="text-muted-foreground hover:text-primary">Favorites</Link></li>
-            <li><Link to="/about" className="text-muted-foreground hover:text-primary">About the Developer</Link></li>
+            <li>
+              <Link to="/about" className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-secondary/40 px-3 py-1 text-muted-foreground transition hover:border-primary/50 hover:text-primary">
+                <User className="h-3.5 w-3.5" /> My Profile
+              </Link>
+            </li>
 
           </ul>
           <p className="mt-4 mb-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">Company</p>
