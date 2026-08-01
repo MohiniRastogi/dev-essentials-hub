@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { CATEGORIES, TOOLS, isImplemented } from "@/lib/tools-registry";
-import { Github, Linkedin, Mail, MessageSquare } from "lucide-react";
+import { Github, Linkedin, Mail, MessageSquare, User } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
