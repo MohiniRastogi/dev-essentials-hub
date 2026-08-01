@@ -14,7 +14,15 @@ export function ToolCard({ tool }: { tool: Tool }) {
   const live = isImplemented(tool);
 
   return (
-    <motion.div whileHover={{ y: -3 }} transition={{ type: "spring", stiffness: 260, damping: 22 }} className="group relative">
+    <motion.div
+      initial={reduce ? undefined : { opacity: 0, scale: 0.97, y: 10 }}
+      whileInView={reduce ? undefined : { opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      whileHover={{ y: -3 }}
+      transition={{ type: "spring", stiffness: 260, damping: 22 }}
+      className="group relative"
+    >
+
       <Link
         to="/t/$toolSlug"
         params={{ toolSlug: tool.slug }}
