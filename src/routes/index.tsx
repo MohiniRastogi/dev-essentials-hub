@@ -29,6 +29,7 @@ import {
 } from "lucide-react";
 import { useMemo, useState } from "react";
 import { SiteLayout } from "@/components/layout/SiteLayout";
+import { Reveal } from "@/components/common/Reveal";
 import { ToolCard } from "@/components/common/ToolCard";
 import { CATEGORIES, TOOLS, toolCount, getTool, isImplemented, type Tool } from "@/lib/tools-registry";
 import { useRecents } from "@/hooks/use-recents";
@@ -187,15 +188,18 @@ function Index() {
       </section>
 
       {recentTools.length > 0 && (
+      <Reveal direction="up">
         <section className="mx-auto max-w-7xl px-4 pb-6 pt-4">
           <SectionHeader title="Recently used" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {recentTools.map((t) => <ToolCard key={t.slug} tool={t} />)}
           </div>
         </section>
+      </Reveal>
       )}
 
       {/* Explore by Category */}
+      <Reveal direction="left">
       <section className="mx-auto max-w-7xl px-4 pb-16 pt-10">
         <SectionHeader title="Categories" subtitle="Browse 100+ free online developer tools organized by category — everything you need to format, convert, generate and inspect code, right in your browser." />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -214,8 +218,10 @@ function Index() {
           })}
         </div>
       </section>
+      </Reveal>
 
       {/* Featured Tools */}
+      <Reveal direction="right">
       <section className="mx-auto max-w-7xl px-4 pb-16">
         <SectionHeader
           title="Featured tools"
@@ -226,8 +232,10 @@ function Index() {
           {featured.map((t) => <ToolCard key={t.slug} tool={t} />)}
         </div>
       </section>
+      </Reveal>
 
       {/* Trending Categories (not tools — avoids repeats) */}
+      <Reveal direction="up">
       <section className="mx-auto max-w-7xl px-4 pb-16">
         <SectionHeader title="Trending categories" subtitle="See which free developer tools and online utilities other developers are exploring most this week." />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -257,8 +265,10 @@ function Index() {
           })}
         </div>
       </section>
+      </Reveal>
 
       {/* Why Use */}
+      <Reveal direction="left">
       <section className="mx-auto max-w-7xl px-4 pb-16">
         <SectionHeader title="Why choose Developer Toolkit" subtitle="Built for speed, privacy, and daily developer productivity." />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -273,8 +283,10 @@ function Index() {
           ))}
         </div>
       </section>
+      </Reveal>
 
       {/* How It Works */}
+      <Reveal direction="right">
       <section className="mx-auto max-w-7xl px-4 pb-16">
         <SectionHeader title="How it works" subtitle="From input to result in four simple steps." />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -290,8 +302,10 @@ function Index() {
           ))}
         </div>
       </section>
+      </Reveal>
 
       {/* Developer Resources */}
+      <Reveal direction="up">
       <section className="mx-auto max-w-7xl px-4 pb-16">
         <SectionHeader title="Developer resources" subtitle="Practical developer guides that pair with the free online tools you already use — JSON formatting, Base64 encoding, regex patterns, UUID versions and more." />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -316,8 +330,10 @@ function Index() {
           })}
         </div>
       </section>
+      </Reveal>
 
       {/* FAQ */}
+      <Reveal direction="left">
       <section className="mx-auto max-w-4xl px-4 pb-20">
         <SectionHeader title="Frequently asked questions" subtitle="Everything you need to know about Developer Toolkit." />
         <Accordion type="single" collapsible className="glass-card divide-y divide-border/50 px-2">
@@ -333,6 +349,7 @@ function Index() {
           ))}
         </Accordion>
       </section>
+      </Reveal>
     </SiteLayout>
   );
 }
