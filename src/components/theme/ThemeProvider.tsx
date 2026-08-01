@@ -19,7 +19,6 @@ const ThemeContext = createContext<ThemeContextValue>({
 function applyTheme(theme: Theme) {
   const root = document.documentElement;
   root.classList.toggle("dark", theme === "dark");
-  root.style.colorScheme = theme;
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
@@ -63,4 +62,4 @@ export function useTheme() {
 }
 
 /** Inline script that applies the stored theme before first paint (no flash). */
-export const themeInitScript = `(function(){try{var t=localStorage.getItem('${STORAGE_KEY}');var d=t!=='light';var r=document.documentElement;r.classList.toggle('dark',d);r.style.colorScheme=d?'dark':'light';}catch(e){}})();`;
+export const themeInitScript = `(function(){try{var t=localStorage.getItem('${STORAGE_KEY}');var d=t!=='light';var r=document.documentElement;r.classList.toggle('dark',d);}catch(e){}})();`;
