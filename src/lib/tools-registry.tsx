@@ -93,6 +93,12 @@ import { SvgBlobGenerator } from "@/tools/design/SvgBlobGenerator";
 import { SvgOptimizer } from "@/tools/design/SvgOptimizer";
 import { CssGenerator } from "@/tools/design/CssGenerator";
 import { FaviconGenerator } from "@/tools/design/FaviconGenerator";
+import { JsBeautifier } from "@/tools/js/JsBeautifier";
+import { ConsoleFormatter } from "@/tools/js/ConsoleFormatter";
+import { BcryptGenerator } from "@/tools/security/BcryptGenerator";
+import { HmacGenerator } from "@/tools/security/HmacGenerator";
+import { UnicodeTool } from "@/tools/encoding/UnicodeTool";
+
 
 export type CategorySlug =
   | "json"

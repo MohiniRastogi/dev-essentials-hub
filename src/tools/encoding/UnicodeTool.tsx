@@ -8,12 +8,11 @@ export function unicodeEncode(input: string) {
       const cp = ch.codePointAt(0)!;
       if (cp < 128 && cp !== 92) return ch;
       if (cp > 0xffff) {
-        const units = [...ch].flatMap(() => []);
-        void units;
         const high = Math.floor((cp - 0x10000) / 0x400) + 0xd800;
         const low = ((cp - 0x10000) % 0x400) + 0xdc00;
         return `\\u${high.toString(16).padStart(4, "0")}\\u${low.toString(16).padStart(4, "0")}`;
       }
+
       return `\\u${cp.toString(16).padStart(4, "0")}`;
     })
     .join("");
