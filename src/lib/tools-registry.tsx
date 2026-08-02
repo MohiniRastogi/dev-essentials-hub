@@ -173,10 +173,10 @@ export const TOOLS: Tool[] = [
   { slug: "clamp-generator", name: "Clamp Generator", description: "Fluid typography clamp() generator with min/max font size and viewport calculations.", category: "css", icon: Type, component: ClampGenerator },
 
   // JavaScript
-  { slug: "js-beautifier", name: "JS Beautifier", description: "Format and indent JavaScript.", category: "javascript", icon: Code2 },
+  { slug: "js-beautifier", name: "JS Beautifier", description: "Free online JavaScript beautifier — format and indent messy JS code instantly in your browser.", category: "javascript", icon: Code2, component: JsBeautifier },
   { slug: "js-minifier", name: "JS Minifier", description: "Minify JavaScript for production.", category: "javascript", icon: FileMinus, component: JsMinifier },
   { slug: "regex-tester", name: "Regex Tester", description: "Test regular expressions online with live match highlighting — a free regex tester and debugger.", category: "javascript", icon: Regex, component: RegexTester, popular: true },
-  { slug: "console-formatter", name: "Console Formatter", description: "Pretty print console log output.", category: "javascript", icon: Terminal },
+  { slug: "console-formatter", name: "Console Formatter", description: "Pretty print console log output — expand inline JSON payloads and tidy stack traces.", category: "javascript", icon: Terminal, component: ConsoleFormatter },
   { slug: "timestamp-converter", name: "Timestamp Converter", description: "Convert between date and Unix timestamps.", category: "javascript", icon: Clock, component: TimestampConverter },
   { slug: "unix-time-converter", name: "Unix Time Converter", description: "Convert Unix time to human dates.", category: "javascript", icon: Clock, component: UnixTimeConverter },
 
@@ -189,8 +189,8 @@ export const TOOLS: Tool[] = [
   { slug: "md5", name: "MD5 Hash", description: "Compute MD5 checksum of any text.", category: "security", icon: Hash, component: () => <HashTool algorithm="MD5" /> },
   { slug: "password-generator", name: "Password Generator", description: "Generate strong, secure random passwords online free — customize length and character sets.", category: "security", icon: Lock, component: PasswordGenerator, popular: true },
   { slug: "password-strength", name: "Password Strength Checker", description: "Estimate password entropy and strength.", category: "security", icon: ShieldCheck, component: PasswordStrength },
-  { slug: "bcrypt-generator", name: "Bcrypt Generator", description: "Generate bcrypt hashes.", category: "security", icon: Hash },
-  { slug: "hmac-generator", name: "HMAC Generator", description: "Generate HMAC signatures.", category: "security", icon: Hash },
+  { slug: "bcrypt-generator", name: "Bcrypt Generator", description: "Generate and verify bcrypt password hashes online with adjustable cost rounds.", category: "security", icon: Hash, component: BcryptGenerator },
+  { slug: "hmac-generator", name: "HMAC Generator", description: "Generate HMAC signatures with SHA-256, SHA-512, SHA-1 or MD5 in hex and Base64.", category: "security", icon: Hash, component: HmacGenerator },
 
   // Text
   { slug: "case-converter", name: "Case Converter", description: "Convert text between casing styles.", category: "text", icon: Type, component: CaseConverter, popular: true },
@@ -211,8 +211,8 @@ export const TOOLS: Tool[] = [
   { slug: "url-decode", name: "URL Decode", description: "Decode percent-encoded URLs.", category: "encoding", icon: LinkIcon, component: () => <UrlEncoderTool mode="decode" /> },
   { slug: "html-encode-2", name: "HTML Encode", description: "Encode text as HTML entities.", category: "encoding", icon: ArrowLeftRight, component: () => <HtmlEntityTool mode="encode" /> },
   { slug: "html-decode-2", name: "HTML Decode", description: "Decode HTML entities to text.", category: "encoding", icon: ArrowLeftRight, component: () => <HtmlEntityTool mode="decode" /> },
-  { slug: "unicode-encode", name: "Unicode Encode", description: "Encode text to Unicode escapes.", category: "encoding", icon: Binary },
-  { slug: "unicode-decode", name: "Unicode Decode", description: "Decode Unicode escapes to text.", category: "encoding", icon: Binary },
+  { slug: "unicode-encode", name: "Unicode Encode", description: "Encode text to \\uXXXX Unicode escape sequences, including emoji and CJK characters.", category: "encoding", icon: Binary, component: () => <UnicodeTool mode="encode" /> },
+  { slug: "unicode-decode", name: "Unicode Decode", description: "Decode \\uXXXX Unicode escape sequences back to readable text.", category: "encoding", icon: Binary, component: () => <UnicodeTool mode="decode" /> },
 
   // Design
   { slug: "qr-generator", name: "QR Code Generator", description: "Free QR code generator online — create custom QR codes with adjustable size and color.", category: "design", icon: QrCode, component: QrGenerator, popular: true },
