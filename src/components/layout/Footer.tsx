@@ -97,8 +97,9 @@ export function Footer() {
           </ul>
           <p className="mt-4 mb-2 text-xs font-medium uppercase tracking-wider text-muted-foreground">Company</p>
           <ul className="grid gap-1.5 text-sm">
-            <li><a href="#" className="text-muted-foreground hover:text-primary">Privacy Policy</a></li>
-            <li><a href="#" className="text-muted-foreground hover:text-primary">Terms</a></li>
+            <li><Link to="/privacy" className="text-muted-foreground hover:text-primary">Privacy Policy</Link></li>
+            <li><Link to="/terms" className="text-muted-foreground hover:text-primary">Terms</Link></li>
+
             <li><a href={siteConfig.contactMailto} className="text-muted-foreground hover:text-primary">Contact</a></li>
           </ul>
         </div>
