@@ -16,9 +16,26 @@ const ThemeContext = createContext<ThemeContextValue>({
   toggleTheme: () => {},
 });
 
+/** Browser UI color per theme (matches --background in src/styles.css). */
+const THEME_COLORS: Record<Theme, string> = {
+  dark: "#0b1020",
+  light: "#f2f5fd",
+};
+
+function applyThemeColorMeta(theme: Theme) {
+  let meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+  if (!meta) {
+    meta = document.createElement("meta");
+    meta.name = "theme-color";
+    document.head.appendChild(meta);
+  }
+  meta.content = THEME_COLORS[theme];
+}
+
 function applyTheme(theme: Theme) {
   const root = document.documentElement;
   root.classList.toggle("dark", theme === "dark");
+  applyThemeColorMeta(theme);
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
@@ -62,4 +79,4 @@ export function useTheme() {
 }
 
 /** Inline script that applies the stored theme before first paint (no flash). */
-export const themeInitScript = `(function(){try{var t=localStorage.getItem('${STORAGE_KEY}');var d=t!=='light';var r=document.documentElement;r.classList.toggle('dark',d);}catch(e){}})();`;
+export const themeInitScript = `(function(){try{var t=localStorage.getItem('${STORAGE_KEY}');var d=t!=='light';var r=document.documentElement;r.classList.toggle('dark',d);var m=document.querySelector('meta[name=\"theme-color\"]');if(!m){m=document.createElement('meta');m.setAttribute('name','theme-color');document.head.appendChild(m);}m.setAttribute('content',d?'#0b1020':'#f2f5fd');}catch(e){}})();`;
