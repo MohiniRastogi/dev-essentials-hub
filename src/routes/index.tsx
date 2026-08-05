@@ -121,7 +121,7 @@ function Index() {
           </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.05 }}
-            className="mx-auto mt-6 max-w-3xl bg-gradient-to-b from-foreground to-foreground/60 bg-clip-text text-4xl font-bold leading-tight text-transparent sm:text-6xl"
+            className="mx-auto mt-6 max-w-3xl bg-gradient-to-b from-foreground to-foreground/85 bg-clip-text text-4xl font-bold leading-tight text-transparent dark:to-foreground/60 sm:text-6xl"
           >
             100+ Free Online Developer Tools — Format, Convert &amp; Generate Instantly
           </motion.h1>
