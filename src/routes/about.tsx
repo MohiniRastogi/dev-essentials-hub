@@ -410,7 +410,12 @@ function WorkTab() {
                 </Badge>
               ))}
             </div>
-            <div className="mt-4">
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Button asChild size="sm">
+                <a href="https://codemateai.devorbitx.site/" target="_blank" rel="noopener noreferrer">
+                  Live demo
+                </a>
+              </Button>
               <Button asChild size="sm" variant="outline">
                 <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer">
                   <Github className="h-4 w-4" /> GitHub
