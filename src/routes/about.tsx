@@ -80,9 +80,9 @@ const DOING = [
 const SKILLS = [
   { name: "HTML", value: 90 },
   { name: "CSS", value: 85 },
-  { name: "JavaScript", value: 80 },
+  { name: "JavaScript", value: 60 },
   { name: "Python", value: 70 },
-  { name: "C", value: 65 },
+  { name: "C", value: 80 },
 ];
 
 function Panel({ className, children }: { className?: string; children: React.ReactNode }) {
@@ -429,6 +429,31 @@ function WorkTab() {
               <Button asChild size="sm" variant="outline">
                 <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer">
                   <Github className="h-4 w-4" /> GitHub
+                </a>
+              </Button>
+            </div>
+          </article>
+
+          <article className="rounded-2xl border border-border/60 bg-card/50 p-5 transition-colors hover:border-primary/40">
+            <h3 className="text-base font-semibold">Calculator</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              A handmade calculator built using HTML, CSS, and JavaScript.
+            </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {["HTML", "CSS", "JavaScript"].map((t) => (
+                <Badge key={t} variant="secondary" className="rounded-full text-xs">
+                  {t}
+                </Badge>
+              ))}
+            </div>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Button asChild size="sm">
+                <a
+                  href="https://mohinirastogi.github.io/calculator_by_mohini/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Live demo
                 </a>
               </Button>
             </div>
