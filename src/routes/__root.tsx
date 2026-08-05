@@ -87,6 +87,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Free online developer tools to format JSON, decode JWT, encode Base64, generate UUIDs, hash SHA256, test regex, create QR codes and more. 100% client-side, no signup, no data upload.",
       },
       { name: "author", content: "Developer Toolkit" },
+      { name: "theme-color", content: "#0b1020" },
       { property: "og:site_name", content: "Developer Toolkit" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "100+ Free Online Developer Tools — JSON, Base64, JWT, Regex & More" },
