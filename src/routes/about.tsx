@@ -8,6 +8,7 @@ import {
   Github,
   Linkedin,
   ChevronDown,
+  ArrowLeft,
   Code2,
   Sparkles,
   Palette,
@@ -99,7 +100,16 @@ function AboutPage() {
 
   return (
     <SiteLayout>
-      <div className="mx-auto grid max-w-7xl gap-6 px-4 pb-20 pt-10 lg:grid-cols-[320px_minmax(0,1fr)]">
+      <div className="mx-auto max-w-7xl px-4 pt-8">
+        <Link
+          to="/"
+          className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/60 px-3.5 py-1.5 text-sm text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Back to Home
+        </Link>
+      </div>
+      <div className="mx-auto grid max-w-7xl gap-6 px-4 pb-20 pt-6 lg:grid-cols-[320px_minmax(0,1fr)]">
         {/* Sidebar */}
         <motion.aside
           initial={{ opacity: 0, y: 10 }}
