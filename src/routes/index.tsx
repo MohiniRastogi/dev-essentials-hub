@@ -336,7 +336,7 @@ function Index() {
       <Reveal direction="left">
       <section className="mx-auto max-w-4xl px-4 pb-20">
         <SectionHeader title="Frequently asked questions" subtitle="Everything you need to know about Developer Toolkit." />
-        <Accordion type="single" collapsible className="glass-card divide-y divide-border/50 px-2">
+        <Accordion type="multiple" className="glass-card divide-y divide-border/50 px-2">
           {FAQS.map((f, i) => (
             <AccordionItem key={i} value={`item-${i}`} className="border-0">
               <AccordionTrigger className="px-4 text-left text-sm font-medium hover:no-underline">
