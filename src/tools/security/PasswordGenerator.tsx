@@ -1,10 +1,12 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Switch } from "@/components/ui/switch";
 import { ToolPanel } from "@/components/common/ToolShell";
 import { CopyButton } from "@/components/common/CopyButton";
-import { RefreshCcw } from "lucide-react";
+import { Info, RefreshCcw } from "lucide-react";
 
 const SETS = {
   lower: "abcdefghijklmnopqrstuvwxyz",
@@ -15,9 +17,38 @@ const SETS = {
 const SIMILAR = /[il1Lo0O]/g;
 const AMBIGUOUS = /[{}[\]()/\\'"`~,;:.<>]/g;
 
+function randomInt(max: number) {
+  if (max <= 0) return 0;
+  const a = new Uint32Array(1);
+  crypto.getRandomValues(a);
+  return a[0] % max;
+}
+
+/** Pick 2–4 letters from the name, styled to the enabled character sets. */
+function nameFragment(
+  name: string,
+  maxLen: number,
+  opts: { lower: boolean; upper: boolean },
+) {
+  const letters = name.replace(/[^a-zA-Z]/g, "");
+  if (!letters || maxLen < 2) return "";
+  const take = Math.min(letters.length, maxLen, 2 + randomInt(3)); // 2–4
+  const start = randomInt(Math.max(1, letters.length - take + 1));
+  const slice = letters.slice(start, start + take);
+  return slice
+    .split("")
+    .map((c) => {
+      if (opts.lower && opts.upper) return randomInt(2) === 0 ? c.toLowerCase() : c.toUpperCase();
+      if (opts.upper) return c.toUpperCase();
+      if (opts.lower) return c.toLowerCase();
+      return c;
+    })
+    .join("");
+}
+
 function generate(opts: {
   length: number; lower: boolean; upper: boolean; digits: boolean; symbols: boolean;
-  excludeSimilar: boolean; excludeAmbiguous: boolean;
+  excludeSimilar: boolean; excludeAmbiguous: boolean; name?: string;
 }) {
   let pool = "";
   if (opts.lower) pool += SETS.lower;
@@ -27,12 +58,22 @@ function generate(opts: {
   if (opts.excludeSimilar) pool = pool.replace(SIMILAR, "");
   if (opts.excludeAmbiguous) pool = pool.replace(AMBIGUOUS, "");
   if (!pool) return "";
-  const arr = new Uint32Array(opts.length);
+
+  // Name-derived part is capped to a minority (max ~1/3) of the password.
+  const fragment = (opts.name ?? "").trim()
+    ? nameFragment((opts.name ?? "").trim(), Math.floor(opts.length / 3), opts)
+    : "";
+
+  const randomCount = opts.length - fragment.length;
+  const arr = new Uint32Array(Math.max(randomCount, 0));
   crypto.getRandomValues(arr);
   let out = "";
-  for (let i = 0; i < opts.length; i++) out += pool[arr[i] % pool.length];
-  return out;
+  for (let i = 0; i < randomCount; i++) out += pool[arr[i] % pool.length];
+  if (!fragment) return out;
+  const at = randomInt(out.length + 1);
+  return out.slice(0, at) + fragment + out.slice(at);
 }
+
 
 function scorePassword(pw: string) {
   let s = 0;
