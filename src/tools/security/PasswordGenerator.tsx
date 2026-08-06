@@ -97,10 +97,13 @@ export function PasswordGenerator() {
   const [excludeSimilar, setExcludeSimilar] = useState(false);
   const [excludeAmbiguous, setExcludeAmbiguous] = useState(false);
   const [pw, setPw] = useState("");
+  const [name, setName] = useState("");
+  const nameRef = useRef("");
+  nameRef.current = name;
 
   const opts = useMemo(() => ({ length, lower, upper, digits, symbols, excludeSimilar, excludeAmbiguous }), [length, lower, upper, digits, symbols, excludeSimilar, excludeAmbiguous]);
 
-  useEffect(() => { setPw(generate(opts)); }, [opts]);
+  useEffect(() => { setPw(generate({ ...opts, name: nameRef.current })); }, [opts]);
   const score = scorePassword(pw);
 
   return (
@@ -110,10 +113,11 @@ export function PasswordGenerator() {
         actions={
           <>
             <CopyButton value={pw} />
-            <Button size="sm" onClick={() => setPw(generate(opts))}><RefreshCcw className="h-4 w-4" /> New</Button>
+            <Button size="sm" onClick={() => setPw(generate({ ...opts, name }))}><RefreshCcw className="h-4 w-4" /> Generate</Button>
           </>
         }
       >
+
         <div className="font-mono-editor break-all rounded-md bg-secondary/40 px-4 py-4 text-lg">{pw || <span className="text-muted-foreground">Enable at least one character set</span>}</div>
         <div className="mt-3 flex items-center gap-3 text-xs">
           <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-secondary/40">
