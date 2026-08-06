@@ -130,9 +130,25 @@ export function PasswordGenerator() {
       <ToolPanel title="Options">
         <div className="grid gap-5">
           <div>
+            <Label htmlFor="pw-name" className="text-sm">Your name (optional)</Label>
+            <Input
+              id="pw-name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="e.g. Mohini"
+              autoComplete="off"
+              className="mt-2"
+            />
+            <p className="mt-2 flex items-start gap-1.5 text-xs text-muted-foreground">
+              <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+              For security, only part of your password is based on your name — the rest is random.
+            </p>
+          </div>
+          <div>
             <div className="mb-2 flex justify-between text-sm"><span>Length</span><span className="font-mono-editor">{length}</span></div>
             <Slider value={[length]} onValueChange={(v) => setLength(v[0])} min={6} max={64} step={1} />
           </div>
+
           <div className="grid gap-3 sm:grid-cols-2">
             <Row label="Uppercase (A–Z)" checked={upper} onChange={setUpper} />
             <Row label="Lowercase (a–z)" checked={lower} onChange={setLower} />
