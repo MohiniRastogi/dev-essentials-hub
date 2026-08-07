@@ -346,15 +346,48 @@ function ResumeTab() {
         <div className="border-l border-border/60 pl-5 text-sm">
           <h3 className="font-medium">AI Intern — Perfoptim Labs</h3>
           <p className="text-muted-foreground">June 15, 2026 – August 14, 2026</p>
-          <ul className="mt-3 grid gap-2 text-muted-foreground">
-            <li>
-              Worked on AI-focused tasks and tools during the internship, gaining hands-on exposure to applied AI
-              concepts and development workflows.
-            </li>
-            <li>Built and tested prompt-driven utilities, iterating on output quality with real inputs.</li>
-            <li>Collaborated on documenting workflows so results could be reproduced by the team.</li>
-          </ul>
+          <div className="mt-4 grid gap-4">
+            {[
+              {
+                title: "AI Content & Video Production",
+                items: [
+                  "Wrote and pitched creative concepts/storyboards for short-form video content",
+                  "Edited and produced videos end-to-end, from raw footage to final export",
+                  "Generated AI videos using Google Flow and Gemini's video generation tools",
+                  "Created animated video content for product/marketing use cases",
+                  "Generated and curated AI images to support content and design needs",
+                ],
+              },
+              {
+                title: "AI-Assisted Development",
+                items: [
+                  "Practiced \u201cvibe coding\u201d — using AI tools like ChatGPT, Claude, Perplexity, and Lovable to rapidly prototype and ship features",
+                  "Worked on practical AI applications, integrating AI tools into everyday development and content workflows",
+                ],
+              },
+              {
+                title: "Core Internship Experience",
+                items: [
+                  "Collaborated with the team on applied AI projects, translating ideas into working outputs",
+                  "Explored the intersection of AI tools and creative/technical production",
+                ],
+              },
+            ].map((group) => (
+              <div
+                key={group.title}
+                className="rounded-2xl border border-border/60 bg-card/50 p-4 transition-colors hover:border-primary/40"
+              >
+                <h4 className="text-sm font-semibold">{group.title}</h4>
+                <ul className="mt-2 grid list-disc gap-1.5 pl-5 text-muted-foreground">
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
+
       </Panel>
 
       <Panel>
