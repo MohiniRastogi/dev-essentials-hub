@@ -2,6 +2,8 @@
 
 This project was built with [Lovable](https://lovable.dev).
 
+Live demo: https://devorbitx.site
+
 ## Build with Lovable
 
 Open your project in the [Lovable editor](https://lovable.dev) and keep building.
