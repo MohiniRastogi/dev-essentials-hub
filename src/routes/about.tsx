@@ -433,7 +433,11 @@ function WorkTab() {
                 <Link to="/">Live demo</Link>
               </Button>
               <Button asChild size="sm" variant="outline">
-                <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://github.com/MohiniRastogi/dev-essentials-hub"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Github className="h-4 w-4" /> GitHub
                 </a>
               </Button>
@@ -460,7 +464,11 @@ function WorkTab() {
                 </a>
               </Button>
               <Button asChild size="sm" variant="outline">
-                <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://github.com/MohiniRastogi/sunshine-mashup-lab"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Github className="h-4 w-4" /> GitHub
                 </a>
               </Button>
@@ -487,6 +495,15 @@ function WorkTab() {
                   rel="noopener noreferrer"
                 >
                   Live demo
+                </a>
+              </Button>
+              <Button asChild size="sm" variant="outline">
+                <a
+                  href="https://github.com/MohiniRastogi/calculator_by_mohini"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="h-4 w-4" /> GitHub
                 </a>
               </Button>
             </div>
