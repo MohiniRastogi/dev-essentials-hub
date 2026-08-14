@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { ChevronDown, Github, Linkedin, Menu, Moon, Sun, User, ArrowRight } from "lucide-react";
+import { ChevronDown, Github, Linkedin, Menu, Moon, Settings, Sun, User, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -113,6 +113,9 @@ function MobileNav() {
           <Link to="/" onClick={() => setOpen(false)} className="py-2">Home</Link>
           <Link to="/tools" onClick={() => setOpen(false)} className="py-2">All tools</Link>
           <Link to="/favorites" onClick={() => setOpen(false)} className="py-2">Favorites</Link>
+          <Link to="/settings" onClick={() => setOpen(false)} className="flex items-center gap-2 py-2">
+            <Settings className="h-4 w-4" /> Settings
+          </Link>
           <ProfileButton className="my-2 w-fit" />
           <Accordion type="single" collapsible className="mt-2">
             {CATEGORIES.map((c) => (
@@ -169,6 +172,14 @@ export function Navbar() {
           <span className="mx-1 h-4 w-px bg-border" />
           <Link to="/tools" className="rounded-md px-2 py-1.5 hover:text-foreground [&.active]:text-foreground">All tools</Link>
           <Link to="/favorites" className="rounded-md px-2 py-1.5 hover:text-foreground [&.active]:text-foreground">Favorites</Link>
+          <Link
+            to="/settings"
+            aria-label="Settings"
+            className="inline-flex items-center gap-1.5 rounded-md px-2 py-1.5 hover:text-foreground [&.active]:text-foreground"
+          >
+            <Settings className="h-4 w-4" />
+            Settings
+          </Link>
         </nav>
 
         <div className="flex items-center gap-1.5">

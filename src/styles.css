@@ -163,6 +163,36 @@
 
 }
 
+html {
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+html body,
+html body * {
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  html body,
+  html body * {
+    transition: none;
+  }
+}
+
+html[data-density="compact"] .glass-card {
+  border-radius: 14px;
+}
+
+html[data-density="compact"] main .grid > * .glass-card {
+  padding: 0.85rem;
+}
+
 @utility glass-card {
   background: color-mix(in oklab, var(--card) 70%, transparent);
   backdrop-filter: blur(14px) saturate(140%);

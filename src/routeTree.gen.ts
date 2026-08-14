@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ToolsRouteImport } from './routes/tools'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as FavoritesRouteImport } from './routes/favorites'
 import { Route as AboutRouteImport } from './routes/about'
@@ -26,6 +27,11 @@ const ToolsRoute = ToolsRouteImport.update({
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/favorites': typeof FavoritesRoute
   '/privacy': typeof PrivacyRoute
+  '/settings': typeof SettingsRoute
   '/terms': typeof TermsRoute
   '/tools': typeof ToolsRoute
   '/category/$slug': typeof CategorySlugRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/favorites': typeof FavoritesRoute
   '/privacy': typeof PrivacyRoute
+  '/settings': typeof SettingsRoute
   '/terms': typeof TermsRoute
   '/tools': typeof ToolsRoute
   '/category/$slug': typeof CategorySlugRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/favorites': typeof FavoritesRoute
   '/privacy': typeof PrivacyRoute
+  '/settings': typeof SettingsRoute
   '/terms': typeof TermsRoute
   '/tools': typeof ToolsRoute
   '/category/$slug': typeof CategorySlugRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/favorites'
     | '/privacy'
+    | '/settings'
     | '/terms'
     | '/tools'
     | '/category/$slug'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/favorites'
     | '/privacy'
+    | '/settings'
     | '/terms'
     | '/tools'
     | '/category/$slug'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/favorites'
     | '/privacy'
+    | '/settings'
     | '/terms'
     | '/tools'
     | '/category/$slug'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   FavoritesRoute: typeof FavoritesRoute
   PrivacyRoute: typeof PrivacyRoute
+  SettingsRoute: typeof SettingsRoute
   TermsRoute: typeof TermsRoute
   ToolsRoute: typeof ToolsRoute
   CategorySlugRoute: typeof CategorySlugRoute
@@ -148,6 +161,13 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   FavoritesRoute: FavoritesRoute,
   PrivacyRoute: PrivacyRoute,
+  SettingsRoute: SettingsRoute,
   TermsRoute: TermsRoute,
   ToolsRoute: ToolsRoute,
   CategorySlugRoute: CategorySlugRoute,

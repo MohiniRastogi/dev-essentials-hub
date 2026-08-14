@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider, themeInitScript } from "@/components/theme/ThemeProvider";
+import { LandingRedirect } from "@/components/layout/LandingRedirect";
 
 
 function NotFoundComponent() {
@@ -140,6 +141,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <LandingRedirect />
         <Outlet />
         <Toaster />
       </ThemeProvider>
