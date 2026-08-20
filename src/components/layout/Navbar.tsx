@@ -50,12 +50,14 @@ function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
+      className="text-primary hover:text-primary"
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
     >
-      {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+      {theme === "dark" ? <Sun className="h-[18px] w-[18px]" /> : <Moon className="h-[18px] w-[18px]" />}
     </Button>
   );
 }
+
 
 function ProfileButton({ className }: { className?: string }) {
   return (
@@ -157,6 +159,13 @@ function MobileNav() {
   );
 }
 
+const NAV_LINK =
+  "whitespace-nowrap rounded-md px-2.5 py-1.5 transition-colors hover:bg-secondary/60 hover:text-foreground [&.active]:text-primary [&.active]:font-medium";
+
+function Divider() {
+  return <span className="mx-2 h-4 w-px bg-border/60" aria-hidden="true" />;
+}
+
 export function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/50 bg-background/70 backdrop-blur-xl">
@@ -165,35 +174,39 @@ export function Navbar() {
           <img src={logo} alt="Developer Toolkit" className="h-[34px] md:h-[40px] w-auto" />
         </Link>
 
-        <nav className="hidden items-center gap-0.5 text-sm text-muted-foreground lg:flex">
-          {CATEGORIES.map((c) => (
-            <CategoryMenu key={c.slug} slug={c.slug} />
-          ))}
-          <span className="mx-1 h-4 w-px bg-border" />
-          <Link to="/tools" className="rounded-md px-2 py-1.5 hover:text-foreground [&.active]:text-foreground">All tools</Link>
-          <Link to="/favorites" className="rounded-md px-2 py-1.5 hover:text-foreground [&.active]:text-foreground">Favorites</Link>
-          <Link
-            to="/settings"
-            aria-label="Settings"
-            className="inline-flex items-center gap-1.5 rounded-md px-2 py-1.5 hover:text-foreground [&.active]:text-foreground"
-          >
-            <Settings className="h-4 w-4" />
+        <nav className="hidden items-center text-sm text-muted-foreground lg:flex">
+          <Divider />
+          <Link to="/" activeOptions={{ exact: true }} className={NAV_LINK}>
+            Home
+          </Link>
+          <div className="flex items-center gap-1">
+            {CATEGORIES.map((c) => (
+              <CategoryMenu key={c.slug} slug={c.slug} />
+            ))}
+          </div>
+          <Divider />
+          <Link to="/tools" className={NAV_LINK}>All tools</Link>
+          <Link to="/favorites" className={NAV_LINK}>Favorites</Link>
+          <Link to="/settings" aria-label="Settings" className={NAV_LINK + " inline-flex items-center gap-1.5"}>
+            <Settings className="h-[18px] w-[18px]" />
             Settings
           </Link>
+          <Divider />
         </nav>
 
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-1">
           <ThemeToggle />
-          <Button variant="ghost" size="icon" asChild className="hidden sm:inline-flex">
+          <Button variant="ghost" size="icon" asChild className="hidden text-primary hover:text-primary sm:inline-flex">
             <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-              <Github className="h-4 w-4" />
+              <Github className="h-[18px] w-[18px]" />
             </a>
           </Button>
-          <Button variant="ghost" size="icon" asChild className="hidden sm:inline-flex">
+          <Button variant="ghost" size="icon" asChild className="hidden text-primary hover:text-primary sm:inline-flex">
             <a href={siteConfig.linkedinUrl} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <Linkedin className="h-4 w-4" />
+              <Linkedin className="h-[18px] w-[18px]" />
             </a>
           </Button>
+          <span className="mx-1.5 hidden h-4 w-px bg-border/60 sm:inline-block" aria-hidden="true" />
           <ProfileButton className="hidden sm:inline-flex" />
           <MobileNav />
         </div>
@@ -201,3 +214,4 @@ export function Navbar() {
     </header>
   );
 }
+

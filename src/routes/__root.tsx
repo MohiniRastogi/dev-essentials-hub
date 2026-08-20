@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider, themeInitScript } from "@/components/theme/ThemeProvider";
+import { accentInitScript } from "@/components/theme/accent";
 import { LandingRedirect } from "@/components/layout/LandingRedirect";
 
 
@@ -125,6 +126,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         <HeadContent />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script dangerouslySetInnerHTML={{ __html: accentInitScript }} />
       </head>
       <body>
         {children}

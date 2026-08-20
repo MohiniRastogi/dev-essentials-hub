@@ -185,9 +185,27 @@ html body * {
   }
 }
 
+/* Accent colour: only active once the user picks one in Settings. */
+html[data-accent="custom"] {
+  --primary: var(--accent-color);
+  --primary-foreground: var(--accent-contrast);
+  --ring: var(--accent-color);
+  --sidebar-primary: var(--accent-color);
+  --sidebar-primary-foreground: var(--accent-contrast);
+  --chart-1: var(--accent-color);
+}
+
+/* Slightly brighter in dark mode so the accent keeps contrast on #0b1020. */
+html.dark[data-accent="custom"] {
+  --primary: color-mix(in oklab, var(--accent-color) 80%, white);
+  --ring: color-mix(in oklab, var(--accent-color) 80%, white);
+  --sidebar-primary: color-mix(in oklab, var(--accent-color) 80%, white);
+}
+
 html[data-density="compact"] .glass-card {
   border-radius: 14px;
 }
+
 
 html[data-density="compact"] main .grid > * .glass-card {
   padding: 0.85rem;
