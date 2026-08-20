@@ -110,16 +110,13 @@ function MobileNav() {
           <Menu className="h-5 w-5" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-[86vw] max-w-sm overflow-y-auto">
-        <div className="mt-6 grid gap-2 text-sm">
+      <SheetContent
+        side="right"
+        className="w-[86vw] max-w-sm overflow-y-auto duration-200"
+      >
+        <div className="mt-6 grid gap-1 text-sm">
           <Link to="/" onClick={() => setOpen(false)} className="py-2">Home</Link>
-          <Link to="/tools" onClick={() => setOpen(false)} className="py-2">All tools</Link>
-          <Link to="/favorites" onClick={() => setOpen(false)} className="py-2">Favorites</Link>
-          <Link to="/settings" onClick={() => setOpen(false)} className="flex items-center gap-2 py-2">
-            <Settings className="h-4 w-4" /> Settings
-          </Link>
-          <ProfileButton className="my-2 w-fit" />
-          <Accordion type="single" collapsible className="mt-2">
+          <Accordion type="single" collapsible>
             {CATEGORIES.map((c) => (
               <AccordionItem key={c.slug} value={c.slug}>
                 <AccordionTrigger className="text-sm">{SHORT_NAMES[c.slug]}</AccordionTrigger>
@@ -153,8 +150,34 @@ function MobileNav() {
               </AccordionItem>
             ))}
           </Accordion>
+          <div className="mt-2 grid gap-1 border-t border-border/60 pt-3">
+            <Link to="/tools" onClick={() => setOpen(false)} className="py-2">All tools</Link>
+            <Link to="/favorites" onClick={() => setOpen(false)} className="py-2">Favorites</Link>
+            <Link to="/settings" onClick={() => setOpen(false)} className="flex items-center gap-2 py-2">
+              <Settings className="h-4 w-4" /> Settings
+            </Link>
+            <a
+              href={siteConfig.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 py-2 sm:hidden"
+            >
+              <Github className="h-4 w-4" /> GitHub
+            </a>
+            <a
+              href={siteConfig.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-2 py-2 sm:hidden"
+            >
+              <Linkedin className="h-4 w-4" /> LinkedIn
+            </a>
+          </div>
         </div>
       </SheetContent>
+
     </Sheet>
   );
 }
