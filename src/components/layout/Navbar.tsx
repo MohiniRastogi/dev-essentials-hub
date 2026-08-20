@@ -50,12 +50,14 @@ function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
+      className="text-primary hover:text-primary"
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
     >
-      {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+      {theme === "dark" ? <Sun className="h-[18px] w-[18px]" /> : <Moon className="h-[18px] w-[18px]" />}
     </Button>
   );
 }
+
 
 function ProfileButton({ className }: { className?: string }) {
   return (
