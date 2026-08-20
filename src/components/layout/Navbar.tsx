@@ -160,7 +160,7 @@ function MobileNav() {
 }
 
 const NAV_LINK =
-  "rounded-md px-2.5 py-1.5 transition-colors hover:bg-secondary/60 hover:text-foreground [&.active]:text-primary [&.active]:font-medium";
+  "whitespace-nowrap rounded-md px-2.5 py-1.5 transition-colors hover:bg-secondary/60 hover:text-foreground [&.active]:text-primary [&.active]:font-medium";
 
 function Divider() {
   return <span className="mx-2 h-4 w-px bg-border/60" aria-hidden="true" />;
