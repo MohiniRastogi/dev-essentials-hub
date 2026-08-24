@@ -80,7 +80,15 @@ function CategoryMenu({ slug }: { slug: CategorySlug }) {
           {SHORT_NAMES[slug]}
           <ChevronDown className="h-3.5 w-3.5" />
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="start" sideOffset={8} className="w-60">
+        <DropdownMenuContent
+          align="start"
+          sideOffset={8}
+          collisionPadding={12}
+          avoidCollisions
+          onCloseAutoFocus={(e) => e.preventDefault()}
+          onOpenAutoFocus={(e) => e.preventDefault()}
+          className="w-60 max-w-[calc(100vw-24px)]"
+        >
           {items.map((t) => (
             <DropdownMenuItem key={t.slug} asChild>
               <Link to="/t/$toolSlug" params={{ toolSlug: t.slug }} className="flex w-full items-center gap-2">
