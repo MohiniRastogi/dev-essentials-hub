@@ -191,7 +191,7 @@ function Divider() {
 export function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/50 bg-background/70 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-3 px-4">
+      <div className="mx-auto grid h-16 w-full max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 overflow-hidden px-4 sm:gap-3 lg:flex lg:justify-between">
         <Link to="/" className="flex shrink-0 items-center" aria-label="Developer Toolkit">
           <img src={logo} alt="Developer Toolkit" className="h-[34px] md:h-[40px] w-auto" />
         </Link>
@@ -212,7 +212,7 @@ export function Navbar() {
           <Divider />
         </nav>
 
-        <div className="flex items-center gap-1">
+        <div className="flex min-w-0 items-center justify-end gap-1">
           <ThemeToggle />
           <Button variant="ghost" size="icon" asChild className="hidden text-primary hover:text-primary sm:inline-flex">
             <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
