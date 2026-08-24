@@ -86,7 +86,6 @@ function CategoryMenu({ slug }: { slug: CategorySlug }) {
           collisionPadding={12}
           avoidCollisions
           onCloseAutoFocus={(e) => e.preventDefault()}
-          onOpenAutoFocus={(e) => e.preventDefault()}
           className="w-60 max-w-[calc(100vw-24px)]"
         >
           {items.map((t) => (
