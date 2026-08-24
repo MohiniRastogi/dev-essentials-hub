@@ -147,6 +147,8 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    max-width: 100%;
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     transition:
       background-color 0.25s ease,
@@ -155,6 +157,8 @@
 
   html {
     color-scheme: light;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   html.dark {
