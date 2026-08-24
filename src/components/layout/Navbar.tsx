@@ -191,7 +191,7 @@ function Divider() {
 export function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/50 bg-background/70 backdrop-blur-xl">
-      <div className="mx-auto grid h-16 w-full max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 overflow-hidden px-4 sm:gap-3 lg:flex lg:justify-between">
+      <div className="mx-auto grid h-16 w-full max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 overflow-x-clip px-4 sm:gap-3 lg:flex lg:justify-between">
         <Link to="/" className="flex shrink-0 items-center" aria-label="Developer Toolkit">
           <img src={logo} alt="Developer Toolkit" className="h-[34px] md:h-[40px] w-auto" />
         </Link>
