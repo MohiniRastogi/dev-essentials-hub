@@ -196,7 +196,7 @@ export function Navbar() {
           <img src={logo} alt="Developer Toolkit" className="h-[34px] md:h-[40px] w-auto" />
         </Link>
 
-        <nav className="hidden min-w-0 items-center overflow-hidden text-sm text-muted-foreground lg:flex">
+        <nav className="hidden min-w-0 items-center overflow-x-clip text-sm text-muted-foreground lg:flex">
           <div className="flex items-center gap-1">
             {CATEGORIES.map((c) => (
               <CategoryMenu key={c.slug} slug={c.slug} />
