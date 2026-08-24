@@ -115,7 +115,6 @@ function MobileNav() {
         className="w-[86vw] max-w-sm overflow-y-auto duration-200"
       >
         <div className="mt-6 grid gap-1 text-sm">
-          <Link to="/" onClick={() => setOpen(false)} className="py-2">Home</Link>
           <Accordion type="single" collapsible>
             {CATEGORIES.map((c) => (
               <AccordionItem key={c.slug} value={c.slug}>
@@ -197,11 +196,7 @@ export function Navbar() {
           <img src={logo} alt="Developer Toolkit" className="h-[34px] md:h-[40px] w-auto" />
         </Link>
 
-        <nav className="hidden items-center text-sm text-muted-foreground lg:flex">
-          <Divider />
-          <Link to="/" activeOptions={{ exact: true }} className={NAV_LINK}>
-            Home
-          </Link>
+        <nav className="hidden min-w-0 items-center overflow-hidden text-sm text-muted-foreground lg:flex">
           <div className="flex items-center gap-1">
             {CATEGORIES.map((c) => (
               <CategoryMenu key={c.slug} slug={c.slug} />
