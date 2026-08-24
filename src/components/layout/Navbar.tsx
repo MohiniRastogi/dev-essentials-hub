@@ -80,7 +80,14 @@ function CategoryMenu({ slug }: { slug: CategorySlug }) {
           {SHORT_NAMES[slug]}
           <ChevronDown className="h-3.5 w-3.5" />
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="start" sideOffset={8} className="w-60">
+        <DropdownMenuContent
+          align="start"
+          sideOffset={8}
+          collisionPadding={12}
+          avoidCollisions
+          onCloseAutoFocus={(e) => e.preventDefault()}
+          className="w-60 max-w-[calc(100vw-24px)]"
+        >
           {items.map((t) => (
             <DropdownMenuItem key={t.slug} asChild>
               <Link to="/t/$toolSlug" params={{ toolSlug: t.slug }} className="flex w-full items-center gap-2">
@@ -191,12 +198,12 @@ function Divider() {
 export function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/50 bg-background/70 backdrop-blur-xl">
-      <div className="mx-auto grid h-16 w-full max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 overflow-hidden px-4 sm:gap-3 lg:flex lg:justify-between">
+      <div className="mx-auto grid h-16 w-full max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 overflow-x-clip px-4 sm:gap-3 lg:flex lg:justify-between">
         <Link to="/" className="flex shrink-0 items-center" aria-label="Developer Toolkit">
           <img src={logo} alt="Developer Toolkit" className="h-[34px] md:h-[40px] w-auto" />
         </Link>
 
-        <nav className="hidden min-w-0 items-center overflow-hidden text-sm text-muted-foreground lg:flex">
+        <nav className="hidden min-w-0 items-center overflow-x-clip text-sm text-muted-foreground lg:flex">
           <div className="flex items-center gap-1">
             {CATEGORIES.map((c) => (
               <CategoryMenu key={c.slug} slug={c.slug} />
