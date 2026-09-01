@@ -159,6 +159,7 @@
     color-scheme: light;
     max-width: 100%;
     overflow-x: hidden;
+    scrollbar-gutter: stable;
   }
 
   html.dark {
