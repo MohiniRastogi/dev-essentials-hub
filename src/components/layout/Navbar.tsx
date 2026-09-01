@@ -74,7 +74,7 @@ function CategoryMenu({ slug }: { slug: CategorySlug }) {
   const [open, setOpen] = useState(false);
   const items = toolsFor(slug);
   return (
-    <DropdownMenu open={open} onOpenChange={setOpen}>
+    <DropdownMenu modal={false} open={open} onOpenChange={setOpen}>
       <div onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
         <DropdownMenuTrigger className="inline-flex items-center gap-1 rounded-md px-2 py-1.5 text-sm text-muted-foreground outline-none transition hover:text-foreground data-[state=open]:text-foreground">
           {SHORT_NAMES[slug]}
