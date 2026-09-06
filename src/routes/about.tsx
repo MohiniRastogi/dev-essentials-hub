@@ -328,13 +328,16 @@ function ResumeTab() {
           <h2 className="text-xl font-semibold sm:text-2xl">Certifications</h2>
         </div>
         <div className="flex flex-wrap gap-2">
-          {["Introduction to AI", "Introduction to Generative AI", "AI and Generative AI for Video Content Creation"].map(
-            (c) => (
-              <Badge key={c} variant="secondary" className="rounded-full px-3 py-1 text-xs">
-                {c}
-              </Badge>
-            ),
-          )}
+          {[
+            "Introduction to AI",
+            "Introduction to Generative AI",
+            "AI and Generative AI for Video Content Creation",
+            "AI Intern",
+          ].map((c) => (
+            <Badge key={c} variant="secondary" className="rounded-full px-3 py-1 text-xs">
+              {c}
+            </Badge>
+          ))}
         </div>
       </Panel>
 
