@@ -240,3 +240,13 @@ html[data-density="compact"] main .grid > * .glass-card {
   font-size: 13px;
   line-height: 1.6;
 }
+
+/* Footer: distinct dark background across all pages. */
+.site-footer {
+  --footer-bg: oklch(0.129 0.042 264.695);
+  --footer-fg: oklch(0.984 0.003 247.858);
+  --footer-muted: oklch(0.704 0.04 256.788);
+  --footer-border: oklch(1 0 0 / 10%);
+  --footer-card: oklch(0.208 0.042 265.755);
+  --footer-pink: oklch(0.627 0.265 303.9);
+}
