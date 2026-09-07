@@ -98,6 +98,14 @@ import { ConsoleFormatter } from "@/tools/js/ConsoleFormatter";
 import { BcryptGenerator } from "@/tools/security/BcryptGenerator";
 import { HmacGenerator } from "@/tools/security/HmacGenerator";
 import { UnicodeTool } from "@/tools/encoding/UnicodeTool";
+import { ClipPathGenerator } from "@/tools/css/ClipPathGenerator";
+import { CubicBezierGenerator } from "@/tools/css/CubicBezierGenerator";
+import { TextShadowGenerator } from "@/tools/css/TextShadowGenerator";
+import { CssFilterGenerator } from "@/tools/css/CssFilterGenerator";
+import { CssTriangleGenerator } from "@/tools/css/CssTriangleGenerator";
+import { ScrollbarStyler } from "@/tools/css/ScrollbarStyler";
+import { SpecificityCalculator } from "@/tools/css/SpecificityCalculator";
+import { CssVariablesGenerator } from "@/tools/css/CssVariablesGenerator";
 
 
 export type CategorySlug =
