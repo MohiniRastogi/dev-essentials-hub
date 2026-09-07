@@ -179,6 +179,14 @@ export const TOOLS: Tool[] = [
   { slug: "flexbox-generator", name: "Flexbox Generator", description: "Visual flexbox playground generating display:flex CSS with live layout preview.", category: "css", icon: Move, component: FlexboxGenerator },
   { slug: "grid-generator", name: "Grid Generator", description: "CSS Grid generator with column, row, gap and custom track sizing plus live preview.", category: "css", icon: Grid3x3, component: GridGenerator },
   { slug: "clamp-generator", name: "Clamp Generator", description: "Fluid typography clamp() generator with min/max font size and viewport calculations.", category: "css", icon: Type, component: ClampGenerator },
+  { slug: "clip-path-generator", name: "Clip-Path Generator", description: "Visual polygon and shape clip-path builder with live preview and copyable CSS output.", category: "css", icon: Scissors, component: ClipPathGenerator },
+  { slug: "cubic-bezier-generator", name: "Cubic Bezier Generator", description: "Visual curve editor for creating custom CSS transition-timing-function easing curves.", category: "css", icon: Sparkles, component: CubicBezierGenerator },
+  { slug: "text-shadow-generator", name: "Text Shadow Generator", description: "Live preview text-shadow builder with offset, blur and color controls.", category: "css", icon: Type, component: TextShadowGenerator },
+  { slug: "css-filter-generator", name: "CSS Filter Generator", description: "Generate blur, brightness, contrast, saturate and other CSS filter effects with live preview.", category: "css", icon: Blend, component: CssFilterGenerator },
+  { slug: "css-triangle-generator", name: "CSS Triangle Generator", description: "Create pure-CSS triangle shapes using the border trick, with direction and size controls.", category: "css", icon: Box, component: CssTriangleGenerator },
+  { slug: "scrollbar-styler", name: "Scrollbar Styler", description: "Custom scrollbar CSS generator with track, thumb, width and hover state controls.", category: "css", icon: Move, component: ScrollbarStyler },
+  { slug: "specificity-calculator", name: "Specificity Calculator", description: "Paste a CSS selector and instantly see its calculated specificity score.", category: "css", icon: ListOrdered, component: SpecificityCalculator },
+  { slug: "css-variables-generator", name: "CSS Variables Generator", description: "Build and export a :root custom-properties color and spacing palette.", category: "css", icon: Palette, component: CssVariablesGenerator },
 
   // JavaScript
   { slug: "js-beautifier", name: "JS Beautifier", description: "Free online JavaScript beautifier — format and indent messy JS code instantly in your browser.", category: "javascript", icon: Code2, component: JsBeautifier },
