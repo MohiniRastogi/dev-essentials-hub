@@ -108,6 +108,9 @@ import { SpecificityCalculator } from "@/tools/css/SpecificityCalculator";
 import { CssVariablesGenerator } from "@/tools/css/CssVariablesGenerator";
 import { LoginFormGenerator } from "@/tools/js/LoginFormGenerator";
 import { FormValidatorGenerator } from "@/tools/js/FormValidatorGenerator";
+import { DeepCloneGenerator } from "@/tools/js/DeepCloneGenerator";
+import { DateFormatterGenerator } from "@/tools/js/DateFormatterGenerator";
+import { SleepDelayGenerator } from "@/tools/js/SleepDelayGenerator";
 
 
 export type CategorySlug =
