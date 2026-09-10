@@ -106,6 +106,8 @@ import { CssTriangleGenerator } from "@/tools/css/CssTriangleGenerator";
 import { ScrollbarStyler } from "@/tools/css/ScrollbarStyler";
 import { SpecificityCalculator } from "@/tools/css/SpecificityCalculator";
 import { CssVariablesGenerator } from "@/tools/css/CssVariablesGenerator";
+import { LoginFormGenerator } from "@/tools/js/LoginFormGenerator";
+import { FormValidatorGenerator } from "@/tools/js/FormValidatorGenerator";
 
 
 export type CategorySlug =
@@ -195,6 +197,8 @@ export const TOOLS: Tool[] = [
   { slug: "console-formatter", name: "Console Formatter", description: "Pretty print console log output — expand inline JSON payloads and tidy stack traces.", category: "javascript", icon: Terminal, component: ConsoleFormatter },
   { slug: "timestamp-converter", name: "Timestamp Converter", description: "Convert between date and Unix timestamps.", category: "javascript", icon: Clock, component: TimestampConverter },
   { slug: "unix-time-converter", name: "Unix Time Converter", description: "Convert Unix time to human dates.", category: "javascript", icon: Clock, component: UnixTimeConverter },
+  { slug: "login-form-generator", name: "Login Form Generator", description: "Generates ready-to-use HTML and JS code for a login form with email/password fields, basic client-side validation, and a show/hide password toggle.", category: "javascript", icon: KeyRound, component: LoginFormGenerator },
+  { slug: "form-validator-generator", name: "Form Validator Generator", description: "Turn your form fields into ready-to-use JS validation code with required checks, email format and minimum password length.", category: "javascript", icon: ShieldCheck, component: FormValidatorGenerator },
 
   // Security
   { slug: "jwt-decoder", name: "JWT Decoder", description: "Decode JWT tokens online free — inspect JWT header and payload instantly, no signup needed.", category: "security", icon: KeyRound, component: JwtDecoder, popular: true },
