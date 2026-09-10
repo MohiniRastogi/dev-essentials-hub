@@ -39,6 +39,9 @@ import {
   Wand2,
   Square,
   Box,
+  Copy,
+  CalendarClock,
+  Timer,
 } from "lucide-react";
 
 import { JsonFormatter } from "@/tools/json/JsonFormatter";
@@ -202,6 +205,9 @@ export const TOOLS: Tool[] = [
   { slug: "unix-time-converter", name: "Unix Time Converter", description: "Convert Unix time to human dates.", category: "javascript", icon: Clock, component: UnixTimeConverter },
   { slug: "login-form-generator", name: "Login Form Generator", description: "Generates ready-to-use HTML and JS code for a login form with email/password fields, basic client-side validation, and a show/hide password toggle.", category: "javascript", icon: KeyRound, component: LoginFormGenerator },
   { slug: "form-validator-generator", name: "Form Validator Generator", description: "Turn your form fields into ready-to-use JS validation code with required checks, email format and minimum password length.", category: "javascript", icon: ShieldCheck, component: FormValidatorGenerator },
+  { slug: "deep-clone-generator", name: "Deep Clone Generator", description: "Generate a ready-to-use JS deep clone utility using structuredClone with a recursive fallback, plus example usage.", category: "javascript", icon: Copy, component: DeepCloneGenerator },
+  { slug: "date-formatter-generator", name: "Date Formatter Generator", description: "Pick a date pattern like DD/MM/YYYY or relative time and generate a dependency-free JS date formatting function.", category: "javascript", icon: CalendarClock, component: DateFormatterGenerator },
+  { slug: "sleep-delay-generator", name: "Sleep / Delay Generator", description: "Generate a Promise-based sleep(ms) utility for async/await delays, with cancellation support and example usage.", category: "javascript", icon: Timer, component: SleepDelayGenerator },
 
   // Security
   { slug: "jwt-decoder", name: "JWT Decoder", description: "Decode JWT tokens online free — inspect JWT header and payload instantly, no signup needed.", category: "security", icon: KeyRound, component: JwtDecoder, popular: true },
